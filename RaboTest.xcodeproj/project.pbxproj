@@ -15,6 +15,14 @@
 		192B812423A79F0A002458D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192B812223A79F0A002458D7 /* LaunchScreen.storyboard */; };
 		192B812F23A79F0A002458D7 /* RaboTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B812E23A79F0A002458D7 /* RaboTestTests.swift */; };
 		192B813A23A79F0A002458D7 /* RaboTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B813923A79F0A002458D7 /* RaboTestUITests.swift */; };
+		192B814923A7A01B002458D7 /* CSVProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B814823A7A01B002458D7 /* CSVProcessor.swift */; };
+		192B814A23A7A01B002458D7 /* CSVProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B814823A7A01B002458D7 /* CSVProcessor.swift */; };
+		192B814D23A7AD5E002458D7 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B814C23A7AD5E002458D7 /* Issue.swift */; };
+		192B814E23A7AD5E002458D7 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B814C23A7AD5E002458D7 /* Issue.swift */; };
+		192B815123A7AE52002458D7 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815023A7AE52002458D7 /* StringUtil.swift */; };
+		192B815223A7AE52002458D7 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815023A7AE52002458D7 /* StringUtil.swift */; };
+		192B815423A7B3C0002458D7 /* StringUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815323A7B3C0002458D7 /* StringUtilTests.swift */; };
+		192B815623A7B931002458D7 /* IssueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815523A7B931002458D7 /* IssueTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +57,11 @@
 		192B813523A79F0A002458D7 /* RaboTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaboTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		192B813923A79F0A002458D7 /* RaboTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaboTestUITests.swift; sourceTree = "<group>"; };
 		192B813B23A79F0A002458D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		192B814823A7A01B002458D7 /* CSVProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVProcessor.swift; sourceTree = "<group>"; };
+		192B814C23A7AD5E002458D7 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		192B815023A7AE52002458D7 /* StringUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
+		192B815323A7B3C0002458D7 /* StringUtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtilTests.swift; sourceTree = "<group>"; };
+		192B815523A7B931002458D7 /* IssueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +112,9 @@
 		192B811623A79F08002458D7 /* RaboTest */ = {
 			isa = PBXGroup;
 			children = (
+				192B814F23A7AE43002458D7 /* Extensions */,
+				192B814B23A7AD04002458D7 /* Data Model */,
+				192B814723A79FFB002458D7 /* Service */,
 				192B811723A79F08002458D7 /* AppDelegate.swift */,
 				192B811923A79F08002458D7 /* SceneDelegate.swift */,
 				192B811B23A79F08002458D7 /* ViewController.swift */,
@@ -115,6 +131,8 @@
 			children = (
 				192B812E23A79F0A002458D7 /* RaboTestTests.swift */,
 				192B813023A79F0A002458D7 /* Info.plist */,
+				192B815323A7B3C0002458D7 /* StringUtilTests.swift */,
+				192B815523A7B931002458D7 /* IssueTests.swift */,
 			);
 			path = RaboTestTests;
 			sourceTree = "<group>";
@@ -126,6 +144,30 @@
 				192B813B23A79F0A002458D7 /* Info.plist */,
 			);
 			path = RaboTestUITests;
+			sourceTree = "<group>";
+		};
+		192B814723A79FFB002458D7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				192B814823A7A01B002458D7 /* CSVProcessor.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		192B814B23A7AD04002458D7 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				192B814C23A7AD5E002458D7 /* Issue.swift */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		192B814F23A7AE43002458D7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				192B815023A7AE52002458D7 /* StringUtil.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +301,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192B814D23A7AD5E002458D7 /* Issue.swift in Sources */,
 				192B811C23A79F08002458D7 /* ViewController.swift in Sources */,
+				192B815123A7AE52002458D7 /* StringUtil.swift in Sources */,
+				192B814923A7A01B002458D7 /* CSVProcessor.swift in Sources */,
 				192B811823A79F08002458D7 /* AppDelegate.swift in Sources */,
 				192B811A23A79F08002458D7 /* SceneDelegate.swift in Sources */,
 			);
@@ -269,7 +314,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192B815223A7AE52002458D7 /* StringUtil.swift in Sources */,
 				192B812F23A79F0A002458D7 /* RaboTestTests.swift in Sources */,
+				192B814A23A7A01B002458D7 /* CSVProcessor.swift in Sources */,
+				192B815423A7B3C0002458D7 /* StringUtilTests.swift in Sources */,
+				192B814E23A7AD5E002458D7 /* Issue.swift in Sources */,
+				192B815623A7B931002458D7 /* IssueTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

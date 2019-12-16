@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		192B811823A79F08002458D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B811723A79F08002458D7 /* AppDelegate.swift */; };
 		192B811A23A79F08002458D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B811923A79F08002458D7 /* SceneDelegate.swift */; };
-		192B811C23A79F08002458D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B811B23A79F08002458D7 /* ViewController.swift */; };
 		192B811F23A79F08002458D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192B811D23A79F08002458D7 /* Main.storyboard */; };
 		192B812123A79F0A002458D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 192B812023A79F0A002458D7 /* Assets.xcassets */; };
 		192B812423A79F0A002458D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192B812223A79F0A002458D7 /* LaunchScreen.storyboard */; };
@@ -32,6 +31,8 @@
 		192B816923A7CD12002458D7 /* emptyfile.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B815F23A7C86B002458D7 /* emptyfile.csv */; };
 		192B816B23A7CDEF002458D7 /* invalid2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B816A23A7CDEF002458D7 /* invalid2.csv */; };
 		192B816C23A7CDEF002458D7 /* invalid2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B816A23A7CDEF002458D7 /* invalid2.csv */; };
+		192B816F23A7D783002458D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B816E23A7D783002458D7 /* MainViewController.swift */; };
+		192B817023A7D784002458D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B816E23A7D783002458D7 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +56,6 @@
 		192B811423A79F08002458D7 /* RaboTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaboTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		192B811723A79F08002458D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		192B811923A79F08002458D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		192B811B23A79F08002458D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		192B811E23A79F08002458D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		192B812023A79F0A002458D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		192B812323A79F0A002458D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,6 +75,7 @@
 		192B815F23A7C86B002458D7 /* emptyfile.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = emptyfile.csv; sourceTree = "<group>"; };
 		192B816423A7CCA1002458D7 /* invalid1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = invalid1.csv; sourceTree = "<group>"; };
 		192B816A23A7CDEF002458D7 /* invalid2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = invalid2.csv; sourceTree = "<group>"; };
+		192B816E23A7D783002458D7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,13 +126,13 @@
 		192B811623A79F08002458D7 /* RaboTest */ = {
 			isa = PBXGroup;
 			children = (
+				192B816D23A7D705002458D7 /* UI */,
 				192B815723A7C536002458D7 /* Resources */,
 				192B814F23A7AE43002458D7 /* Extensions */,
 				192B814B23A7AD04002458D7 /* Data Model */,
 				192B814723A79FFB002458D7 /* Service */,
 				192B811723A79F08002458D7 /* AppDelegate.swift */,
 				192B811923A79F08002458D7 /* SceneDelegate.swift */,
-				192B811B23A79F08002458D7 /* ViewController.swift */,
 				192B811D23A79F08002458D7 /* Main.storyboard */,
 				192B812023A79F0A002458D7 /* Assets.xcassets */,
 				192B812223A79F0A002458D7 /* LaunchScreen.storyboard */,
@@ -201,6 +202,14 @@
 				192B815F23A7C86B002458D7 /* emptyfile.csv */,
 			);
 			name = "Test Data";
+			sourceTree = "<group>";
+		};
+		192B816D23A7D705002458D7 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				192B816E23A7D783002458D7 /* MainViewController.swift */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,9 +353,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				192B814D23A7AD5E002458D7 /* Issue.swift in Sources */,
-				192B811C23A79F08002458D7 /* ViewController.swift in Sources */,
 				192B815123A7AE52002458D7 /* StringUtil.swift in Sources */,
 				192B814923A7A01B002458D7 /* CSVProcessor.swift in Sources */,
+				192B816F23A7D783002458D7 /* MainViewController.swift in Sources */,
 				192B811823A79F08002458D7 /* AppDelegate.swift in Sources */,
 				192B811A23A79F08002458D7 /* SceneDelegate.swift in Sources */,
 			);
@@ -370,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				192B813A23A79F0A002458D7 /* RaboTestUITests.swift in Sources */,
+				192B817023A7D784002458D7 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

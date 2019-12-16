@@ -32,7 +32,7 @@ class MainViewController: UITabBarController {
     
     private func show(error: Error) {
         
-        let alert = UIAlertController(title: NSLocalizedString("Error loading data", comment: "Error dialog title when data loading failed"), message: error.localizedDescription.nilIfEmpty ?? NSLocalizedString("Failed to load data", comment: "General error message when failed to looad data"), preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("Error loading data", comment: "Error dialog title when data loading failed"), message: error.localizedDescription.nilIfEmpty ?? NSLocalizedString("Failed to load data", comment: "General error message when failed to load data"), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK button title"), style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
@@ -50,11 +50,24 @@ class MainViewController: UITabBarController {
                 guard let _self = self else {return}
                 
                 _self.issues = _issues
+                
+                _self.updateTabs(text: text)
+                
                 if let _error = error {
                     _self.show(error: _error)
                 }
-                else {
-                    // TODO: Tell controllers we have data to show
+            }
+        }
+    }
+    
+    private func updateTabs(text: String?) {
+
+        if let _controllers = viewControllers {
+            
+            for controller in _controllers {
+                
+                if var _controller = controller as? IssuesDisplayController {
+                    _controller.issues = issues
                 }
             }
         }

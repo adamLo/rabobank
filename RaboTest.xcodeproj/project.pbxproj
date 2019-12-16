@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		192B811823A79F08002458D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B811723A79F08002458D7 /* AppDelegate.swift */; };
+		192B811A23A79F08002458D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B811923A79F08002458D7 /* SceneDelegate.swift */; };
+		192B811C23A79F08002458D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B811B23A79F08002458D7 /* ViewController.swift */; };
+		192B811F23A79F08002458D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192B811D23A79F08002458D7 /* Main.storyboard */; };
+		192B812123A79F0A002458D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 192B812023A79F0A002458D7 /* Assets.xcassets */; };
+		192B812423A79F0A002458D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192B812223A79F0A002458D7 /* LaunchScreen.storyboard */; };
+		192B812F23A79F0A002458D7 /* RaboTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B812E23A79F0A002458D7 /* RaboTestTests.swift */; };
+		192B813A23A79F0A002458D7 /* RaboTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B813923A79F0A002458D7 /* RaboTestUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		192B812B23A79F0A002458D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 192B810C23A79F08002458D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 192B811323A79F08002458D7;
+			remoteInfo = RaboTest;
+		};
+		192B813623A79F0A002458D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 192B810C23A79F08002458D7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 192B811323A79F08002458D7;
+			remoteInfo = RaboTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		192B811423A79F08002458D7 /* RaboTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaboTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		192B811723A79F08002458D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		192B811923A79F08002458D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		192B811B23A79F08002458D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		192B811E23A79F08002458D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		192B812023A79F0A002458D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		192B812323A79F0A002458D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		192B812523A79F0A002458D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		192B812A23A79F0A002458D7 /* RaboTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaboTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		192B812E23A79F0A002458D7 /* RaboTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaboTestTests.swift; sourceTree = "<group>"; };
+		192B813023A79F0A002458D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		192B813523A79F0A002458D7 /* RaboTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaboTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		192B813923A79F0A002458D7 /* RaboTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaboTestUITests.swift; sourceTree = "<group>"; };
+		192B813B23A79F0A002458D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		192B811123A79F08002458D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		192B812723A79F0A002458D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		192B813223A79F0A002458D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		192B810B23A79F08002458D7 = {
+			isa = PBXGroup;
+			children = (
+				192B811623A79F08002458D7 /* RaboTest */,
+				192B812D23A79F0A002458D7 /* RaboTestTests */,
+				192B813823A79F0A002458D7 /* RaboTestUITests */,
+				192B811523A79F08002458D7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		192B811523A79F08002458D7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				192B811423A79F08002458D7 /* RaboTest.app */,
+				192B812A23A79F0A002458D7 /* RaboTestTests.xctest */,
+				192B813523A79F0A002458D7 /* RaboTestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		192B811623A79F08002458D7 /* RaboTest */ = {
+			isa = PBXGroup;
+			children = (
+				192B811723A79F08002458D7 /* AppDelegate.swift */,
+				192B811923A79F08002458D7 /* SceneDelegate.swift */,
+				192B811B23A79F08002458D7 /* ViewController.swift */,
+				192B811D23A79F08002458D7 /* Main.storyboard */,
+				192B812023A79F0A002458D7 /* Assets.xcassets */,
+				192B812223A79F0A002458D7 /* LaunchScreen.storyboard */,
+				192B812523A79F0A002458D7 /* Info.plist */,
+			);
+			path = RaboTest;
+			sourceTree = "<group>";
+		};
+		192B812D23A79F0A002458D7 /* RaboTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				192B812E23A79F0A002458D7 /* RaboTestTests.swift */,
+				192B813023A79F0A002458D7 /* Info.plist */,
+			);
+			path = RaboTestTests;
+			sourceTree = "<group>";
+		};
+		192B813823A79F0A002458D7 /* RaboTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				192B813923A79F0A002458D7 /* RaboTestUITests.swift */,
+				192B813B23A79F0A002458D7 /* Info.plist */,
+			);
+			path = RaboTestUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		192B811323A79F08002458D7 /* RaboTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 192B813E23A79F0A002458D7 /* Build configuration list for PBXNativeTarget "RaboTest" */;
+			buildPhases = (
+				192B811023A79F08002458D7 /* Sources */,
+				192B811123A79F08002458D7 /* Frameworks */,
+				192B811223A79F08002458D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RaboTest;
+			productName = RaboTest;
+			productReference = 192B811423A79F08002458D7 /* RaboTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		192B812923A79F0A002458D7 /* RaboTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 192B814123A79F0A002458D7 /* Build configuration list for PBXNativeTarget "RaboTestTests" */;
+			buildPhases = (
+				192B812623A79F0A002458D7 /* Sources */,
+				192B812723A79F0A002458D7 /* Frameworks */,
+				192B812823A79F0A002458D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				192B812C23A79F0A002458D7 /* PBXTargetDependency */,
+			);
+			name = RaboTestTests;
+			productName = RaboTestTests;
+			productReference = 192B812A23A79F0A002458D7 /* RaboTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		192B813423A79F0A002458D7 /* RaboTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 192B814423A79F0A002458D7 /* Build configuration list for PBXNativeTarget "RaboTestUITests" */;
+			buildPhases = (
+				192B813123A79F0A002458D7 /* Sources */,
+				192B813223A79F0A002458D7 /* Frameworks */,
+				192B813323A79F0A002458D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				192B813723A79F0A002458D7 /* PBXTargetDependency */,
+			);
+			name = RaboTestUITests;
+			productName = RaboTestUITests;
+			productReference = 192B813523A79F0A002458D7 /* RaboTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		192B810C23A79F08002458D7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Adam Lovastyik";
+				TargetAttributes = {
+					192B811323A79F08002458D7 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					192B812923A79F0A002458D7 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 192B811323A79F08002458D7;
+					};
+					192B813423A79F0A002458D7 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = 192B811323A79F08002458D7;
+					};
+				};
+			};
+			buildConfigurationList = 192B810F23A79F08002458D7 /* Build configuration list for PBXProject "RaboTest" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 192B810B23A79F08002458D7;
+			productRefGroup = 192B811523A79F08002458D7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				192B811323A79F08002458D7 /* RaboTest */,
+				192B812923A79F0A002458D7 /* RaboTestTests */,
+				192B813423A79F0A002458D7 /* RaboTestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		192B811223A79F08002458D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				192B812423A79F0A002458D7 /* LaunchScreen.storyboard in Resources */,
+				192B812123A79F0A002458D7 /* Assets.xcassets in Resources */,
+				192B811F23A79F08002458D7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		192B812823A79F0A002458D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		192B813323A79F0A002458D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		192B811023A79F08002458D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				192B811C23A79F08002458D7 /* ViewController.swift in Sources */,
+				192B811823A79F08002458D7 /* AppDelegate.swift in Sources */,
+				192B811A23A79F08002458D7 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		192B812623A79F0A002458D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				192B812F23A79F0A002458D7 /* RaboTestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		192B813123A79F0A002458D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				192B813A23A79F0A002458D7 /* RaboTestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		192B812C23A79F0A002458D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 192B811323A79F08002458D7 /* RaboTest */;
+			targetProxy = 192B812B23A79F0A002458D7 /* PBXContainerItemProxy */;
+		};
+		192B813723A79F0A002458D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 192B811323A79F08002458D7 /* RaboTest */;
+			targetProxy = 192B813623A79F0A002458D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		192B811D23A79F08002458D7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				192B811E23A79F08002458D7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		192B812223A79F0A002458D7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				192B812323A79F0A002458D7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		192B813C23A79F0A002458D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		192B813D23A79F0A002458D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		192B813F23A79F0A002458D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X37H2S679C;
+				INFOPLIST_FILE = RaboTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lovastyik.RaboTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		192B814023A79F0A002458D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X37H2S679C;
+				INFOPLIST_FILE = RaboTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lovastyik.RaboTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		192B814223A79F0A002458D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X37H2S679C;
+				INFOPLIST_FILE = RaboTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lovastyik.RaboTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RaboTest.app/RaboTest";
+			};
+			name = Debug;
+		};
+		192B814323A79F0A002458D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X37H2S679C;
+				INFOPLIST_FILE = RaboTestTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lovastyik.RaboTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RaboTest.app/RaboTest";
+			};
+			name = Release;
+		};
+		192B814523A79F0A002458D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X37H2S679C;
+				INFOPLIST_FILE = RaboTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lovastyik.RaboTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RaboTest;
+			};
+			name = Debug;
+		};
+		192B814623A79F0A002458D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X37H2S679C;
+				INFOPLIST_FILE = RaboTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = hu.lovastyik.RaboTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RaboTest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		192B810F23A79F08002458D7 /* Build configuration list for PBXProject "RaboTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				192B813C23A79F0A002458D7 /* Debug */,
+				192B813D23A79F0A002458D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		192B813E23A79F0A002458D7 /* Build configuration list for PBXNativeTarget "RaboTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				192B813F23A79F0A002458D7 /* Debug */,
+				192B814023A79F0A002458D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		192B814123A79F0A002458D7 /* Build configuration list for PBXNativeTarget "RaboTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				192B814223A79F0A002458D7 /* Debug */,
+				192B814323A79F0A002458D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		192B814423A79F0A002458D7 /* Build configuration list for PBXNativeTarget "RaboTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				192B814523A79F0A002458D7 /* Debug */,
+				192B814623A79F0A002458D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 192B810C23A79F08002458D7 /* Project object */;
+}

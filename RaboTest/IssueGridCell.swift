@@ -1,5 +1,5 @@
 //
-//  IssueListCell.swift
+//  IssueGridCell.swift
 //  RaboTest
 //
 //  Created by Adam Lovastyik on 16/12/2019.
@@ -8,28 +8,26 @@
 
 import UIKit
 
-class IssueListCell: UITableViewCell {
+class IssueGridCell: UICollectionViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthDateLabel: UILabel!
     @IBOutlet weak var issuesCountLabel: UILabel!
     
-    static let reuseId = "issueListCell"
+    static let reuseId = "issueGridCell"
     
     private lazy var birthDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.dateStyle = .long
         formatter.timeStyle = .none
         return formatter
     }()
-
+    
     override func awakeFromNib() {
         
         super.awakeFromNib()
-        
-        selectionStyle = .none
     }
-
+    
     func setup(with issue: Issue) {
         
         nameLabel.update(withNameFrom: issue)

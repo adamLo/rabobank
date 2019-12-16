@@ -39,6 +39,12 @@
 		192B817823A7DE7B002458D7 /* IssueListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B817623A7DE7B002458D7 /* IssueListCell.swift */; };
 		192B817A23A7E39E002458D7 /* IssuesDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B817923A7E39E002458D7 /* IssuesDisplayController.swift */; };
 		192B817B23A7E39E002458D7 /* IssuesDisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B817923A7E39E002458D7 /* IssuesDisplayController.swift */; };
+		192B817E23A7E6D2002458D7 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B817D23A7E6D2002458D7 /* GridViewController.swift */; };
+		192B817F23A7E6D2002458D7 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B817D23A7E6D2002458D7 /* GridViewController.swift */; };
+		192B818123A7E6EE002458D7 /* IssueGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818023A7E6EE002458D7 /* IssueGridCell.swift */; };
+		192B818223A7E6EE002458D7 /* IssueGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818023A7E6EE002458D7 /* IssueGridCell.swift */; };
+		192B818823A7E804002458D7 /* IssueCellLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818723A7E804002458D7 /* IssueCellLabels.swift */; };
+		192B818923A7E804002458D7 /* IssueCellLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818723A7E804002458D7 /* IssueCellLabels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +91,9 @@
 		192B817323A7DE5B002458D7 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		192B817623A7DE7B002458D7 /* IssueListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueListCell.swift; sourceTree = "<group>"; };
 		192B817923A7E39E002458D7 /* IssuesDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesDisplayController.swift; sourceTree = "<group>"; };
+		192B817D23A7E6D2002458D7 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		192B818023A7E6EE002458D7 /* IssueGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueGridCell.swift; sourceTree = "<group>"; };
+		192B818723A7E804002458D7 /* IssueCellLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCellLabels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				192B815023A7AE52002458D7 /* StringUtil.swift */,
+				192B818723A7E804002458D7 /* IssueCellLabels.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -216,6 +226,7 @@
 		192B816D23A7D705002458D7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				192B817C23A7E5BB002458D7 /* Grid view */,
 				192B817223A7DE44002458D7 /* List View */,
 				192B817123A7DE3A002458D7 /* Main */,
 			);
@@ -238,6 +249,15 @@
 				192B817623A7DE7B002458D7 /* IssueListCell.swift */,
 			);
 			name = "List View";
+			sourceTree = "<group>";
+		};
+		192B817C23A7E5BB002458D7 /* Grid view */ = {
+			isa = PBXGroup;
+			children = (
+				192B817D23A7E6D2002458D7 /* GridViewController.swift */,
+				192B818023A7E6EE002458D7 /* IssueGridCell.swift */,
+			);
+			name = "Grid view";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,8 +404,11 @@
 				192B815123A7AE52002458D7 /* StringUtil.swift in Sources */,
 				192B814923A7A01B002458D7 /* CSVProcessor.swift in Sources */,
 				192B817A23A7E39E002458D7 /* IssuesDisplayController.swift in Sources */,
+				192B818823A7E804002458D7 /* IssueCellLabels.swift in Sources */,
 				192B817723A7DE7B002458D7 /* IssueListCell.swift in Sources */,
 				192B816F23A7D783002458D7 /* MainViewController.swift in Sources */,
+				192B817E23A7E6D2002458D7 /* GridViewController.swift in Sources */,
+				192B818123A7E6EE002458D7 /* IssueGridCell.swift in Sources */,
 				192B811823A79F08002458D7 /* AppDelegate.swift in Sources */,
 				192B811A23A79F08002458D7 /* SceneDelegate.swift in Sources */,
 				192B817423A7DE5B002458D7 /* ListViewController.swift in Sources */,
@@ -410,7 +433,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				192B813A23A79F0A002458D7 /* RaboTestUITests.swift in Sources */,
+				192B818223A7E6EE002458D7 /* IssueGridCell.swift in Sources */,
 				192B817023A7D784002458D7 /* MainViewController.swift in Sources */,
+				192B817F23A7E6D2002458D7 /* GridViewController.swift in Sources */,
+				192B818923A7E804002458D7 /* IssueCellLabels.swift in Sources */,
 				192B817523A7DE5B002458D7 /* ListViewController.swift in Sources */,
 				192B817B23A7E39E002458D7 /* IssuesDisplayController.swift in Sources */,
 				192B817823A7DE7B002458D7 /* IssueListCell.swift in Sources */,

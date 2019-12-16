@@ -13,7 +13,6 @@
 		192B811F23A79F08002458D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192B811D23A79F08002458D7 /* Main.storyboard */; };
 		192B812123A79F0A002458D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 192B812023A79F0A002458D7 /* Assets.xcassets */; };
 		192B812423A79F0A002458D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192B812223A79F0A002458D7 /* LaunchScreen.storyboard */; };
-		192B812F23A79F0A002458D7 /* RaboTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B812E23A79F0A002458D7 /* RaboTestTests.swift */; };
 		192B813A23A79F0A002458D7 /* RaboTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B813923A79F0A002458D7 /* RaboTestUITests.swift */; };
 		192B814923A7A01B002458D7 /* CSVProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B814823A7A01B002458D7 /* CSVProcessor.swift */; };
 		192B814A23A7A01B002458D7 /* CSVProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B814823A7A01B002458D7 /* CSVProcessor.swift */; };
@@ -23,6 +22,16 @@
 		192B815223A7AE52002458D7 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815023A7AE52002458D7 /* StringUtil.swift */; };
 		192B815423A7B3C0002458D7 /* StringUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815323A7B3C0002458D7 /* StringUtilTests.swift */; };
 		192B815623A7B931002458D7 /* IssueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815523A7B931002458D7 /* IssueTests.swift */; };
+		192B815923A7C547002458D7 /* issues.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B815823A7C547002458D7 /* issues.csv */; };
+		192B815A23A7C547002458D7 /* issues.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B815823A7C547002458D7 /* issues.csv */; };
+		192B815B23A7C547002458D7 /* issues.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B815823A7C547002458D7 /* issues.csv */; };
+		192B815D23A7C565002458D7 /* CSVProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815C23A7C565002458D7 /* CSVProcessorTests.swift */; };
+		192B816123A7C86B002458D7 /* emptyfile.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B815F23A7C86B002458D7 /* emptyfile.csv */; };
+		192B816623A7CCA1002458D7 /* invalid1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B816423A7CCA1002458D7 /* invalid1.csv */; };
+		192B816823A7CD10002458D7 /* invalid1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B816423A7CCA1002458D7 /* invalid1.csv */; };
+		192B816923A7CD12002458D7 /* emptyfile.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B815F23A7C86B002458D7 /* emptyfile.csv */; };
+		192B816B23A7CDEF002458D7 /* invalid2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B816A23A7CDEF002458D7 /* invalid2.csv */; };
+		192B816C23A7CDEF002458D7 /* invalid2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B816A23A7CDEF002458D7 /* invalid2.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +61,6 @@
 		192B812323A79F0A002458D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		192B812523A79F0A002458D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		192B812A23A79F0A002458D7 /* RaboTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaboTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		192B812E23A79F0A002458D7 /* RaboTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaboTestTests.swift; sourceTree = "<group>"; };
 		192B813023A79F0A002458D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		192B813523A79F0A002458D7 /* RaboTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaboTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		192B813923A79F0A002458D7 /* RaboTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaboTestUITests.swift; sourceTree = "<group>"; };
@@ -62,6 +70,11 @@
 		192B815023A7AE52002458D7 /* StringUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
 		192B815323A7B3C0002458D7 /* StringUtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtilTests.swift; sourceTree = "<group>"; };
 		192B815523A7B931002458D7 /* IssueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTests.swift; sourceTree = "<group>"; };
+		192B815823A7C547002458D7 /* issues.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = issues.csv; sourceTree = "<group>"; };
+		192B815C23A7C565002458D7 /* CSVProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVProcessorTests.swift; sourceTree = "<group>"; };
+		192B815F23A7C86B002458D7 /* emptyfile.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = emptyfile.csv; sourceTree = "<group>"; };
+		192B816423A7CCA1002458D7 /* invalid1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = invalid1.csv; sourceTree = "<group>"; };
+		192B816A23A7CDEF002458D7 /* invalid2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = invalid2.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +125,7 @@
 		192B811623A79F08002458D7 /* RaboTest */ = {
 			isa = PBXGroup;
 			children = (
+				192B815723A7C536002458D7 /* Resources */,
 				192B814F23A7AE43002458D7 /* Extensions */,
 				192B814B23A7AD04002458D7 /* Data Model */,
 				192B814723A79FFB002458D7 /* Service */,
@@ -129,10 +143,11 @@
 		192B812D23A79F0A002458D7 /* RaboTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				192B812E23A79F0A002458D7 /* RaboTestTests.swift */,
 				192B813023A79F0A002458D7 /* Info.plist */,
+				192B815E23A7C7BA002458D7 /* Test Data */,
 				192B815323A7B3C0002458D7 /* StringUtilTests.swift */,
 				192B815523A7B931002458D7 /* IssueTests.swift */,
+				192B815C23A7C565002458D7 /* CSVProcessorTests.swift */,
 			);
 			path = RaboTestTests;
 			sourceTree = "<group>";
@@ -168,6 +183,24 @@
 				192B815023A7AE52002458D7 /* StringUtil.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		192B815723A7C536002458D7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				192B815823A7C547002458D7 /* issues.csv */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		192B815E23A7C7BA002458D7 /* Test Data */ = {
+			isa = PBXGroup;
+			children = (
+				192B816423A7CCA1002458D7 /* invalid1.csv */,
+				192B816A23A7CDEF002458D7 /* invalid2.csv */,
+				192B815F23A7C86B002458D7 /* emptyfile.csv */,
+			);
+			name = "Test Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,7 +307,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192B816923A7CD12002458D7 /* emptyfile.csv in Resources */,
+				192B815923A7C547002458D7 /* issues.csv in Resources */,
+				192B816B23A7CDEF002458D7 /* invalid2.csv in Resources */,
 				192B812423A79F0A002458D7 /* LaunchScreen.storyboard in Resources */,
+				192B816823A7CD10002458D7 /* invalid1.csv in Resources */,
 				192B812123A79F0A002458D7 /* Assets.xcassets in Resources */,
 				192B811F23A79F08002458D7 /* Main.storyboard in Resources */,
 			);
@@ -284,6 +321,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192B816123A7C86B002458D7 /* emptyfile.csv in Resources */,
+				192B815A23A7C547002458D7 /* issues.csv in Resources */,
+				192B816623A7CCA1002458D7 /* invalid1.csv in Resources */,
+				192B816C23A7CDEF002458D7 /* invalid2.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192B815B23A7C547002458D7 /* issues.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,11 +357,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				192B815223A7AE52002458D7 /* StringUtil.swift in Sources */,
-				192B812F23A79F0A002458D7 /* RaboTestTests.swift in Sources */,
 				192B814A23A7A01B002458D7 /* CSVProcessor.swift in Sources */,
 				192B815423A7B3C0002458D7 /* StringUtilTests.swift in Sources */,
 				192B814E23A7AD5E002458D7 /* Issue.swift in Sources */,
 				192B815623A7B931002458D7 /* IssueTests.swift in Sources */,
+				192B815D23A7C565002458D7 /* CSVProcessorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

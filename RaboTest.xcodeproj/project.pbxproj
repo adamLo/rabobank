@@ -45,6 +45,13 @@
 		192B818223A7E6EE002458D7 /* IssueGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818023A7E6EE002458D7 /* IssueGridCell.swift */; };
 		192B818823A7E804002458D7 /* IssueCellLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818723A7E804002458D7 /* IssueCellLabels.swift */; };
 		192B818923A7E804002458D7 /* IssueCellLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818723A7E804002458D7 /* IssueCellLabels.swift */; };
+		192B818B23A8F7FE002458D7 /* CSVFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818A23A8F7FE002458D7 /* CSVFile.swift */; };
+		192B818C23A8F7FE002458D7 /* CSVFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818A23A8F7FE002458D7 /* CSVFile.swift */; };
+		192B818E23A8FD47002458D7 /* CSVFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818D23A8FD47002458D7 /* CSVFileTests.swift */; };
+		192B818F23A8FDB5002458D7 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B814C23A7AD5E002458D7 /* Issue.swift */; };
+		192B819023A8FDC5002458D7 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815023A7AE52002458D7 /* StringUtil.swift */; };
+		192B819123A8FDDA002458D7 /* CSVProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B814823A7A01B002458D7 /* CSVProcessor.swift */; };
+		192B819223A8FDDE002458D7 /* CSVFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818A23A8F7FE002458D7 /* CSVFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +101,8 @@
 		192B817D23A7E6D2002458D7 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		192B818023A7E6EE002458D7 /* IssueGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueGridCell.swift; sourceTree = "<group>"; };
 		192B818723A7E804002458D7 /* IssueCellLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCellLabels.swift; sourceTree = "<group>"; };
+		192B818A23A8F7FE002458D7 /* CSVFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFile.swift; sourceTree = "<group>"; };
+		192B818D23A8FD47002458D7 /* CSVFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFileTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +176,7 @@
 				192B815323A7B3C0002458D7 /* StringUtilTests.swift */,
 				192B815523A7B931002458D7 /* IssueTests.swift */,
 				192B815C23A7C565002458D7 /* CSVProcessorTests.swift */,
+				192B818D23A8FD47002458D7 /* CSVFileTests.swift */,
 			);
 			path = RaboTestTests;
 			sourceTree = "<group>";
@@ -192,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				192B814C23A7AD5E002458D7 /* Issue.swift */,
+				192B818A23A8F7FE002458D7 /* CSVFile.swift */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -406,6 +417,7 @@
 				192B817A23A7E39E002458D7 /* IssuesDisplayController.swift in Sources */,
 				192B818823A7E804002458D7 /* IssueCellLabels.swift in Sources */,
 				192B817723A7DE7B002458D7 /* IssueListCell.swift in Sources */,
+				192B818B23A8F7FE002458D7 /* CSVFile.swift in Sources */,
 				192B816F23A7D783002458D7 /* MainViewController.swift in Sources */,
 				192B817E23A7E6D2002458D7 /* GridViewController.swift in Sources */,
 				192B818123A7E6EE002458D7 /* IssueGridCell.swift in Sources */,
@@ -423,7 +435,9 @@
 				192B814A23A7A01B002458D7 /* CSVProcessor.swift in Sources */,
 				192B815423A7B3C0002458D7 /* StringUtilTests.swift in Sources */,
 				192B814E23A7AD5E002458D7 /* Issue.swift in Sources */,
+				192B818E23A8FD47002458D7 /* CSVFileTests.swift in Sources */,
 				192B815623A7B931002458D7 /* IssueTests.swift in Sources */,
+				192B818C23A8F7FE002458D7 /* CSVFile.swift in Sources */,
 				192B815D23A7C565002458D7 /* CSVProcessorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,14 +446,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192B819123A8FDDA002458D7 /* CSVProcessor.swift in Sources */,
 				192B813A23A79F0A002458D7 /* RaboTestUITests.swift in Sources */,
 				192B818223A7E6EE002458D7 /* IssueGridCell.swift in Sources */,
+				192B819023A8FDC5002458D7 /* StringUtil.swift in Sources */,
+				192B819223A8FDDE002458D7 /* CSVFile.swift in Sources */,
 				192B817023A7D784002458D7 /* MainViewController.swift in Sources */,
 				192B817F23A7E6D2002458D7 /* GridViewController.swift in Sources */,
 				192B818923A7E804002458D7 /* IssueCellLabels.swift in Sources */,
 				192B817523A7DE5B002458D7 /* ListViewController.swift in Sources */,
 				192B817B23A7E39E002458D7 /* IssuesDisplayController.swift in Sources */,
 				192B817823A7DE7B002458D7 /* IssueListCell.swift in Sources */,
+				192B818F23A8FDB5002458D7 /* Issue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -158,7 +158,6 @@
 				192B811723A79F08002458D7 /* AppDelegate.swift */,
 				192B811923A79F08002458D7 /* SceneDelegate.swift */,
 				192B811D23A79F08002458D7 /* Main.storyboard */,
-				192B812023A79F0A002458D7 /* Assets.xcassets */,
 				192B812223A79F0A002458D7 /* LaunchScreen.storyboard */,
 				192B812523A79F0A002458D7 /* Info.plist */,
 			);
@@ -206,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				192B815823A7C547002458D7 /* issues.csv */,
+				192B812023A79F0A002458D7 /* Assets.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

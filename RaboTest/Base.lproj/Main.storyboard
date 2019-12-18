@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-693" y="139"/>
         </scene>
-        <!--Item 2-->
+        <!--TXT-->
         <scene sceneID="KdL-v0-NGX">
             <objects>
                 <viewController id="NVG-uQ-dPo" customClass="TextViewController" customModule="RaboTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,7 +50,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UuR-wv-ida"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="GvL-WQ-rji"/>
+                    <tabBarItem key="tabBarItem" title="TXT" selectedImage="tab-icon-txt" id="GvL-WQ-rji"/>
                     <connections>
                         <outlet property="csvTextView" destination="8hv-l1-02T" id="waw-yO-IAc"/>
                     </connections>
@@ -59,7 +59,7 @@
             </objects>
             <point key="canvasLocation" x="798.55072463768124" y="251.9021739130435"/>
         </scene>
-        <!--Item-->
+        <!--Errors-->
         <scene sceneID="Hn8-4b-JCM">
             <objects>
                 <viewController id="jfA-Ez-bI5" customClass="ErrorsViewController" customModule="RaboTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -111,7 +111,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3ui-Sa-0sc"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="kHU-jp-om5"/>
+                    <tabBarItem key="tabBarItem" title="Errors" selectedImage="tab-icon-errors" id="kHU-jp-om5"/>
                     <connections>
                         <outlet property="errorsTableView" destination="JQM-Q6-upo" id="DoL-F5-ldK"/>
                     </connections>
@@ -120,7 +120,7 @@
             </objects>
             <point key="canvasLocation" x="13" y="969"/>
         </scene>
-        <!--Item 1-->
+        <!--CSV-->
         <scene sceneID="y9l-c0-JMx">
             <objects>
                 <viewController id="4uE-Ta-kNP" customClass="ListViewController" customModule="RaboTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -156,7 +156,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bpo-WD-3bJ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="WQy-Gb-RcD"/>
+                    <tabBarItem key="tabBarItem" title="CSV" selectedImage="tab-icon-csv" id="WQy-Gb-RcD"/>
                     <connections>
                         <outlet property="listTableView" destination="CRI-Xb-z9B" id="w5W-ub-cyu"/>
                     </connections>
@@ -262,4 +262,9 @@
             <point key="canvasLocation" x="1681" y="-408"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab-icon-csv" width="25" height="25"/>
+        <image name="tab-icon-errors" width="25" height="25"/>
+        <image name="tab-icon-txt" width="25" height="25"/>
+    </resources>
 </document>

@@ -32,7 +32,6 @@ class CSVFile {
         }
     }
     // Queues to handle threading
-    private let linesWriteQueue = DispatchQueue(label: "LinesWriteQueue")
     private let linesReadQueue = DispatchQueue(label: "LinesReadQueue")
         
     /// URL to file in the bundle
@@ -58,7 +57,7 @@ class CSVFile {
     func load(firstLineAsHeader: Bool, linesRead: LinesReadBlock?, completion: CompletionBlock?) {
         
         stopReading = false
-        linesWriteQueue.sync {
+        linesReadQueue.sync {
             _lines.removeAll()
         }
         
@@ -127,14 +126,14 @@ class CSVFile {
             for line in _lines {
                 let strings = self.process(line: line)
                 if lineIndex == 0 && asHeader {
-                    self.linesWriteQueue.async {
+                    self.linesReadQueue.async {
                         self._fieldNames = strings
                     }
                 }
                 else {
                     let values = self.process(strings: strings, fieldNames: self.fieldNames)
                     
-                    self.linesWriteQueue.async {
+                    self.linesReadQueue.async {
                         self._lines.append(values)
                     }
                     

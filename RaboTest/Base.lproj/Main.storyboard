@@ -59,6 +59,67 @@
             </objects>
             <point key="canvasLocation" x="798.55072463768124" y="251.9021739130435"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="Hn8-4b-JCM">
+            <objects>
+                <viewController id="jfA-Ez-bI5" customClass="ErrorsViewController" customModule="RaboTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jdH-V4-esS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JQM-Q6-upo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="643"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="errorCell" id="OFK-VM-tlf" customClass="ErrorCell" customModule="RaboTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OFK-VM-tlf" id="Hg9-Sm-VoF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fy8-yb-bE3">
+                                                    <rect key="frame" x="20" y="11.666666666666666" width="111" height="20.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fy8-yb-bE3" firstAttribute="leading" secondItem="Hg9-Sm-VoF" secondAttribute="leadingMargin" id="8yE-w3-0IW"/>
+                                                <constraint firstItem="fy8-yb-bE3" firstAttribute="centerY" secondItem="Hg9-Sm-VoF" secondAttribute="centerY" id="MMf-ut-L2F"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="fy8-yb-bE3" secondAttribute="trailing" id="xgB-Y1-rae"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="fy8-yb-bE3" id="ZXL-an-zqq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="jfA-Ez-bI5" id="ggs-7z-mUg"/>
+                                    <outlet property="delegate" destination="jfA-Ez-bI5" id="07a-Ev-2Vl"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JQM-Q6-upo" firstAttribute="top" secondItem="3ui-Sa-0sc" secondAttribute="top" id="RdG-Kk-nm4"/>
+                            <constraint firstItem="3ui-Sa-0sc" firstAttribute="trailing" secondItem="JQM-Q6-upo" secondAttribute="trailing" id="Rrq-IS-yK7"/>
+                            <constraint firstItem="JQM-Q6-upo" firstAttribute="leading" secondItem="3ui-Sa-0sc" secondAttribute="leading" id="YGg-yJ-jQg"/>
+                            <constraint firstItem="3ui-Sa-0sc" firstAttribute="bottom" secondItem="JQM-Q6-upo" secondAttribute="bottom" id="vV5-ex-i6p"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3ui-Sa-0sc"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="kHU-jp-om5"/>
+                    <connections>
+                        <outlet property="errorsTableView" destination="JQM-Q6-upo" id="DoL-F5-ldK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lfu-YG-wAQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13" y="969"/>
+        </scene>
         <!--Item 1-->
         <scene sceneID="y9l-c0-JMx">
             <objects>
@@ -117,6 +178,7 @@
                     <connections>
                         <segue destination="4uE-Ta-kNP" kind="relationship" relationship="viewControllers" id="VfW-dL-X5m"/>
                         <segue destination="NVG-uQ-dPo" kind="relationship" relationship="viewControllers" id="g01-2I-c8K"/>
+                        <segue destination="jfA-Ez-bI5" kind="relationship" relationship="viewControllers" id="smO-Sf-O6B"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDh-BZ-aPm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -47,6 +47,10 @@
 		192B819F23AA48B2002458D7 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B819D23AA48B2002458D7 /* ItemCell.swift */; };
 		192B81A223AA5A95002458D7 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81A123AA5A95002458D7 /* TextViewController.swift */; };
 		192B81A323AA5A95002458D7 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81A123AA5A95002458D7 /* TextViewController.swift */; };
+		192B81A623AA5C87002458D7 /* ErrorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81A523AA5C87002458D7 /* ErrorsViewController.swift */; };
+		192B81A723AA5C87002458D7 /* ErrorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81A523AA5C87002458D7 /* ErrorsViewController.swift */; };
+		192B81A923AA5C9C002458D7 /* ErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81A823AA5C9C002458D7 /* ErrorCell.swift */; };
+		192B81AA23AA5C9C002458D7 /* ErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81A823AA5C9C002458D7 /* ErrorCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,8 @@
 		192B819A23AA4892002458D7 /* LineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineViewController.swift; sourceTree = "<group>"; };
 		192B819D23AA48B2002458D7 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		192B81A123AA5A95002458D7 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		192B81A523AA5C87002458D7 /* ErrorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsViewController.swift; sourceTree = "<group>"; };
+		192B81A823AA5C9C002458D7 /* ErrorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +223,7 @@
 		192B816D23A7D705002458D7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				192B81A423AA5C00002458D7 /* Error View */,
 				192B81A023AA5A79002458D7 /* Text View */,
 				192B817223A7DE44002458D7 /* List View */,
 				192B817123A7DE3A002458D7 /* Main */,
@@ -250,6 +257,15 @@
 				192B81A123AA5A95002458D7 /* TextViewController.swift */,
 			);
 			name = "Text View";
+			sourceTree = "<group>";
+		};
+		192B81A423AA5C00002458D7 /* Error View */ = {
+			isa = PBXGroup;
+			children = (
+				192B81A523AA5C87002458D7 /* ErrorsViewController.swift */,
+				192B81A823AA5C9C002458D7 /* ErrorCell.swift */,
+			);
+			name = "Error View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +410,7 @@
 			files = (
 				192B819B23AA4892002458D7 /* LineViewController.swift in Sources */,
 				192B815123A7AE52002458D7 /* StringUtil.swift in Sources */,
+				192B81A923AA5C9C002458D7 /* ErrorCell.swift in Sources */,
 				192B818823A7E804002458D7 /* IssueCellLabels.swift in Sources */,
 				192B819E23AA48B2002458D7 /* ItemCell.swift in Sources */,
 				192B818B23A8F7FE002458D7 /* CSVFile.swift in Sources */,
@@ -404,6 +421,7 @@
 				192B817423A7DE5B002458D7 /* ListViewController.swift in Sources */,
 				192B819823AA2E80002458D7 /* ListLineCell.swift in Sources */,
 				192B81A223AA5A95002458D7 /* TextViewController.swift in Sources */,
+				192B81A623AA5C87002458D7 /* ErrorsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,8 +444,10 @@
 				192B81A323AA5A95002458D7 /* TextViewController.swift in Sources */,
 				192B813A23A79F0A002458D7 /* RaboTestUITests.swift in Sources */,
 				192B819923AA2E80002458D7 /* ListLineCell.swift in Sources */,
+				192B81AA23AA5C9C002458D7 /* ErrorCell.swift in Sources */,
 				192B819023A8FDC5002458D7 /* StringUtil.swift in Sources */,
 				192B819223A8FDDE002458D7 /* CSVFile.swift in Sources */,
+				192B81A723AA5C87002458D7 /* ErrorsViewController.swift in Sources */,
 				192B819F23AA48B2002458D7 /* ItemCell.swift in Sources */,
 				192B817023A7D784002458D7 /* MainViewController.swift in Sources */,
 				192B818923A7E804002458D7 /* IssueCellLabels.swift in Sources */,

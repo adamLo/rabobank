@@ -55,17 +55,31 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 40.0
+        return 44.0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return UITableView.automaticDimension
+        return 44.0//UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if let _cell = cell as? ListLineCell, _cell.lineController != nil, !children.contains(_cell.lineController) {
+            addChild(_cell.lineController)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if let _cell = cell as? ListLineCell, _cell.lineController != nil, children.contains(_cell.lineController) {
+            _cell.lineController.removeFromParent()
+        }
     }
     
     // MARK: - CSVDisplayController

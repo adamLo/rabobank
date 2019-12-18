@@ -12,6 +12,8 @@ class ErrorsViewController: UIViewController, CSVDisplayController, UITableViewD
 
     @IBOutlet weak var errorsTableView: UITableView!
     
+    // MARK: - Controller Lifecycle
+    
     private var errors: [Error]? {
         didSet {
             if isViewLoaded {
@@ -30,6 +32,8 @@ class ErrorsViewController: UIViewController, CSVDisplayController, UITableViewD
     // MARK: - UI customization
     
     private func setupUI() {
+        
+        title = NSLocalizedString("Errors", comment: "Errors display title")
         
         errorsTableView.tableFooterView = UIView()
     }

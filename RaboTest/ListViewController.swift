@@ -26,6 +26,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     private func setupUI() {
         
+        title = NSLocalizedString("CSV", comment: "CSV display title")
+        
         listTableView.tableFooterView = UIView()
     }
     

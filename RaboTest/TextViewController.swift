@@ -14,15 +14,26 @@ class TextViewController: UIViewController, CSVDisplayController {
     
     private var text = NSLocalizedString("Loading CSV file please wait...", comment: "Placeholder when file being loaded")
     
+    // MARK: - Controller Lifecycle
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
         csvTextView.text = text
+    }
+    
+    // MARK: - UI Customization
+    
+    private func setupUI() {
+        
+        title = NSLocalizedString("TXT", comment: "TXT display title")
     }
 
     // MARK: - CSVDisplayController

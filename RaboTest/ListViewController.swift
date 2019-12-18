@@ -40,7 +40,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return max(min(file?.lines.count ?? 0, lastIndex + 1), 0)
+        return max(min(file?.lines.count ?? 0, lastIndex), 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,17 +90,20 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     weak var file: CSVFile?
     
-    func add(line: [String : Any], index: Int) {
+    func add(lines: [CSVLine], index: Int) {
         
         let previousIndex = lastIndex
         lastIndex = index
         
         if previousIndex >= 0, index > previousIndex {
+
+            var indexPaths = [IndexPath]()
+            for newIndex in previousIndex..<index {
+                indexPaths.append(IndexPath(row: newIndex, section: 0))
+            }
             
             listTableView.beginUpdates()
-            for newIndex in previousIndex..<index {
-                listTableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .none)
-            }
+            listTableView.insertRows(at: indexPaths, with: .none)
             listTableView.endUpdates()
         }
         else {

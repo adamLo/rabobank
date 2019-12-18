@@ -86,10 +86,10 @@ class MainViewController: UITabBarController {
             
             toggleActivity(true)
             
-            _file.load(lineRead: {[weak self] (index, line) in
+            _file.load(linesRead: {[weak self] (index, lines) in
                 
-                if let _self = self, let _index = index, let _line = line {
-                    _self.updateTabs(index: _index, line: _line)
+                if let _self = self, let _index = index, let _lines = lines {
+                    _self.updateTabs(index: _index, lines: _lines)
                 }
             }) {[weak self] (text, errors) in
                 
@@ -111,13 +111,13 @@ class MainViewController: UITabBarController {
         }
     }
     
-    private func updateTabs(index: Int, line: CSVLine) {
+    private func updateTabs(index: Int, lines: [CSVLine]) {
         
         if let _controllers = viewControllers {
             for controller in _controllers {
                 
                 if let _controller = controller as? CSVDisplayController {
-                    _controller.add(line: line, index: index)
+                    _controller.add(lines: lines, index: index)
                 }
             }
         }

@@ -9,7 +9,7 @@
 import Foundation
 
 typealias CSVLine = [String: Any]
-typealias LineReadBlock = ((_ index: Int?, _ line: CSVLine?) -> ())
+typealias LinesReadBlock = ((_ index: Int?, _ lines: [CSVLine]?) -> ())
 typealias CompletionBlock = ((_ text: String?, _ errors: [Error]?) -> ())
 
 class CSVFile {
@@ -50,7 +50,7 @@ class CSVFile {
     }
     
     /// Loads csv file and calls lineRead after each line loaded and parsed and completion when finished
-    func load(lineRead: LineReadBlock?, completion: CompletionBlock?) {
+    func load(linesRead: LinesReadBlock?, completion: CompletionBlock?) {
         
         stopReading = false
         linesWriteQueue.sync {
@@ -88,7 +88,7 @@ class CSVFile {
                     if let textRead = String(bytesNoCopy: buffer, length: numberOfBytesRead, encoding: .utf8, freeWhenDone: false) {
                         
                         text.append(textRead)
-                        leftOver = self.process(textRead: textRead, leftOver: leftOver, final: false, lineIndex: &lineIndex, lineRead: lineRead)
+                        leftOver = self.process(textRead: textRead, leftOver: leftOver, final: false, lineIndex: &lineIndex, linesRead: linesRead)
                     }
                 }
             }
@@ -96,7 +96,7 @@ class CSVFile {
             stream.close()
             
             if let _leftover = leftOver.nilIfEmpty {
-                self.process(textRead: "", leftOver: _leftover, final: true, lineIndex: &lineIndex, lineRead: lineRead)
+                self.process(textRead: "", leftOver: _leftover, final: true, lineIndex: &lineIndex, linesRead: linesRead)
             }
             
             DispatchQueue.main.async {
@@ -112,10 +112,13 @@ class CSVFile {
     private var stopReading = false
     
     @discardableResult
-    func process(textRead: String, leftOver: String, final: Bool, lineIndex: inout Int, lineRead: LineReadBlock?) -> String {
+    func process(textRead: String, leftOver: String, final: Bool, lineIndex: inout Int, linesRead: LinesReadBlock?) -> String {
         
         let (_lines, _leftover) = self.process(text: "\(leftOver)\(textRead)", final: final)
         if !_lines.isEmpty {
+            
+            var processedLines = [CSVLine]()
+            
             for line in _lines {
                 let strings = self.process(line: line)
                 if lineIndex == 0 {
@@ -128,13 +131,15 @@ class CSVFile {
                         self._lines.append(values)
                     }
                     
-                    let index = lineIndex
-                    DispatchQueue.main.async {
-                        lineRead?(max(index - 1, 0), values)
-                    }
+                    processedLines.append(values)
                 }
                 
                 lineIndex += 1
+            }
+            
+            let index = lineIndex			
+            DispatchQueue.main.async {
+                linesRead?(max(index - 1, 0), processedLines)
             }
         }
         

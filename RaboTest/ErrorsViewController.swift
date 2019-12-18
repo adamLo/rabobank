@@ -66,7 +66,7 @@ class ErrorsViewController: UIViewController, CSVDisplayController, UITableViewD
     
     weak var file: CSVFile?
     
-    func add(line: [String : Any], index: Int) {
+    func add(lines: [CSVLine], index: Int) {
     }
     
     func readComplete(text: String?, errors: [Error]?) {

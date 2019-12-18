@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Displays loaded CSV as plain text so users can compare parsed content with original
 class TextViewController: UIViewController, CSVDisplayController {
     
     @IBOutlet weak var csvTextView: UITextView!

@@ -8,10 +8,12 @@
 
 import UIKit
 
+/// Displays a single line of parsed CSV file
 class LineViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
         
     @IBOutlet weak var lineCollectionView: UICollectionView!
     
+    /// Parsed line
     var line: CSVLine! {
         didSet {
             if isViewLoaded {
@@ -20,8 +22,10 @@ class LineViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    /// Header of CSV file. Used to ensure proper ordering of fields
     var headers: [String]!
     
+    /// Instantiates view controller from main storyboard
     class func controller() -> LineViewController {
         
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "LineViewController") as! LineViewController
@@ -108,7 +112,7 @@ class LineViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let font = UIFont.systemFont(ofSize: 15)
         let titleWidth = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: font]).boundingRect(with: CGSize(width: 10000, height: 100), options: .usesLineFragmentOrigin, context: nil).size.width
-        let valueWidth = NSAttributedString(string: "\(value)", attributes: [NSAttributedString.Key.font: font]).boundingRect(with: CGSize(width: 10000, height: 100), options: .usesLineFragmentOrigin, context: nil).size.width
+        let valueWidth = NSAttributedString(string: value, attributes: [NSAttributedString.Key.font: font]).boundingRect(with: CGSize(width: 10000, height: 100), options: .usesLineFragmentOrigin, context: nil).size.width
 
         width = max(titleWidth, valueWidth) + CGFloat(max(count - 1, 1) * 5)
         

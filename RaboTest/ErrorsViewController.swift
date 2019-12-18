@@ -8,12 +8,14 @@
 
 import UIKit
 
+/// Displays errors that might have occured during loading and parsing CSV file
 class ErrorsViewController: UIViewController, CSVDisplayController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var errorsTableView: UITableView!
     
     // MARK: - Controller Lifecycle
     
+    /// Errors to display
     private var errors: [Error]? {
         didSet {
             if isViewLoaded {

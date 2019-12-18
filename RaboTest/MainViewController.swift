@@ -8,9 +8,13 @@
 
 import UIKit
 
+/// Main viewcontroller that encapsulates 3 tabs to show parsed file, original plain text and errors
 class MainViewController: UITabBarController {
     
     // MARK: - Controller Lifecycle
+    
+    /// Name of CSV file to load and parse. Change here to load different file
+    private let fileToRead = "issues"
     
     override func viewDidLoad() {
         
@@ -75,11 +79,11 @@ class MainViewController: UITabBarController {
     
     // MARK: - Data integrations
     
-    var file: CSVFile?
+    private var file: CSVFile?
     
     private func loadBundleData() {
         
-        if let path = Bundle.main.path(forResource: "issues", ofType: "csv"), let _file = CSVFile(localFileURL: URL(fileURLWithPath: path)) {
+        if let path = Bundle.main.path(forResource: fileToRead, ofType: "csv"), let _file = CSVFile(localFileURL: URL(fileURLWithPath: path)) {
         
             file = _file
             updateTabs(file: _file)

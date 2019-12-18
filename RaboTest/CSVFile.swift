@@ -12,6 +12,7 @@ typealias CSVLine = [String: Any]
 typealias LinesReadBlock = ((_ index: Int?, _ lines: [CSVLine]?) -> ())
 typealias CompletionBlock = ((_ text: String?, _ errors: [Error]?) -> ())
 
+/// CSV file loader and parser
 class CSVFile {
     
     /// Contains field names
@@ -31,7 +32,7 @@ class CSVFile {
             }
         }
     }
-    // Queues to handle threading
+    // Queue to handle threading
     private let linesReadQueue = DispatchQueue(label: "LinesReadQueue")
         
     /// URL to file in the bundle
@@ -43,6 +44,7 @@ class CSVFile {
     /// Date formatter to parse date strings
     static let dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
     
+    /// Error domain, used when creating errors
     private let errorDomain = "CSVFILE"
     
     /// Initialize with an URL to a local file in the bundle
@@ -53,10 +55,9 @@ class CSVFile {
         self.fileURL = localFileURL
     }
     
-    /// Loads csv file and calls lineRead after each line loaded and parsed and completion when finished
+    /// Loads csv file and calls linesRead after each line loaded and parsed and completion when finished
     func load(firstLineAsHeader: Bool, linesRead: LinesReadBlock?, completion: CompletionBlock?) {
         
-        stopReading = false
         linesReadQueue.sync {
             _lines.removeAll()
         }
@@ -81,7 +82,7 @@ class CSVFile {
             
             stream.open()
         
-            while stream.hasBytesAvailable && !self.stopReading {
+            while stream.hasBytesAvailable {
                 
                 let numberOfBytesRead = stream.read(buffer, maxLength: self.maxReadLength)
                 if numberOfBytesRead < 0, let error = stream.streamError {
@@ -109,12 +110,7 @@ class CSVFile {
         }
     }
     
-    /// Stops further loading
-    func stopLoading() {
-        stopReading = true
-    }
-    private var stopReading = false
-    
+    /// Processes a chunk of content read from stream. textRead: read block, leftOver: leftover text from previous read. final: indicates whether a NL should be expected at the end. asHeader: indicates whether first line should be treated as header. lineIndex: current read and parsed line index. linesRead: block executed when a batch of lines parsed. Returns leftover text after processing
     @discardableResult
     func process(textRead: String, leftOver: String, final: Bool, asHeader: Bool, lineIndex: inout Int, linesRead: LinesReadBlock?) -> String {
         
@@ -152,6 +148,7 @@ class CSVFile {
         return _leftover
     }
     
+    /// Processes a piece of read text into array of lines and returns leftover (if not final)
     func process(text: String, final: Bool) -> (lines: [String], leftOver: String) {
         
         let nsText = NSMutableString(string: text)
@@ -177,6 +174,7 @@ class CSVFile {
         return (lines, String(nsText))
     }
     
+    /// Processes a single line of read text into array of strings to parse
     func process(line: String) -> [String] {
         
         var lines = [String]()
@@ -195,6 +193,7 @@ class CSVFile {
         return lines
     }
     
+    /// Processes array of strings read from a line into parsed values. strings: array of string values. fieldNames: determines associative index
     func process(strings: [String], fieldNames: [String]) -> CSVLine {
         
         var result = [String: Any]()
@@ -215,6 +214,7 @@ class CSVFile {
         return result
     }
     
+    /// Parses a string into a typed value
     func value(of string: String) -> Any {
         
         if let value = Int(string) {
@@ -233,6 +233,7 @@ class CSVFile {
         return string
     }
     
+    /// Date formatter used to parse a date string
     private lazy var dateFormatter: DateFormatter = {
         
         let formatter = DateFormatter()
@@ -240,6 +241,7 @@ class CSVFile {
         return formatter
     }()
     
+    /// Constructs an error from code and message
     private func createError(code: Int, message: String) -> NSError {
         
         return NSError(domain: self.errorDomain, code: code, userInfo: [NSLocalizedDescriptionKey: message])

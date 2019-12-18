@@ -38,6 +38,7 @@ extension String {
         return String(nsValue)
     }
     
+    /// Constructs a string from a parsed value
     static func from(value: Any) -> String {
         
         if let intValue = value as? Int {

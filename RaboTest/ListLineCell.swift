@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Encapsulates displaying an entire line of a parsed CSV
 class ListLineCell: UITableViewCell {
     
     static let reuseId = "lineCell"
@@ -29,10 +30,18 @@ class ListLineCell: UITableViewCell {
         }
     }
     
+    /// Sets up cell with a line from parsed CSV file, optionally with headers
     func setup(values: CSVLine, headers: [String]) {
         
         lineController.headers = headers
         lineController.line = values
     }
 
+    override func prepareForReuse() {
+        
+        super.prepareForReuse()
+        
+        lineController.line = [:]
+        lineController.headers = []
+    }
 }

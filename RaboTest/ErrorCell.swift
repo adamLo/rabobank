@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Displays an error occured during loading and parsing CSV file
 class ErrorCell: UITableViewCell {
 
     @IBOutlet weak var messageLabel: UILabel!
@@ -22,6 +23,7 @@ class ErrorCell: UITableViewCell {
         messageLabel.font = UIFont.systemFont(ofSize: 15)
     }
 
+    /// Sets up cell with an error instance
     func setup(error: Error) {
         
         messageLabel.text = error.localizedDescription

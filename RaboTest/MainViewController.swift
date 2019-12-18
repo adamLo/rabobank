@@ -51,9 +51,9 @@ class MainViewController: UITabBarController {
                 if let _self = self, let _index = index, let _line = line {
                     _self.updateTabs(index: _index, line: _line)
                 }
-            }) {[weak self] (errors) in
+            }) {[weak self] (text, errors) in
                 
-                self?.updateTabs(errors: errors)
+                self?.updateTabs(text: text, errors: errors)
             }
         }
     }
@@ -82,13 +82,13 @@ class MainViewController: UITabBarController {
         }
     }
     
-    private func updateTabs(errors: [Error]?) {
+    private func updateTabs(text: String?, errors: [Error]?) {
         
         if let _controllers = viewControllers {
             for controller in _controllers {
                 
                 if let _controller = controller as? CSVDisplayController {
-                    _controller.readComplete(errors: errors)
+                    _controller.readComplete(text: text, errors: errors)
                 }
             }
         }

@@ -106,7 +106,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func readComplete(errors: [Error]?) {
+    func readComplete(text: String?, errors: [Error]?) {
         
         lastIndex = max(lastIndex, (file?.lines.count ?? 0) - 1)
         listTableView.reloadData()

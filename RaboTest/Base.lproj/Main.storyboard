@@ -27,14 +27,33 @@
         <!--Item 2-->
         <scene sceneID="KdL-v0-NGX">
             <objects>
-                <viewController id="NVG-uQ-dPo" sceneMemberID="viewController">
+                <viewController id="NVG-uQ-dPo" customClass="TextViewController" customModule="RaboTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DsP-7Z-7Fq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8hv-l1-02T">
+                                <rect key="frame" x="0.0" y="44" width="414" height="643"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8hv-l1-02T" firstAttribute="leading" secondItem="UuR-wv-ida" secondAttribute="leading" id="Dia-vu-8Jr"/>
+                            <constraint firstItem="UuR-wv-ida" firstAttribute="trailing" secondItem="8hv-l1-02T" secondAttribute="trailing" id="Sn3-xe-KVJ"/>
+                            <constraint firstItem="8hv-l1-02T" firstAttribute="top" secondItem="UuR-wv-ida" secondAttribute="top" id="qym-hM-Vc2"/>
+                            <constraint firstItem="UuR-wv-ida" firstAttribute="bottom" secondItem="8hv-l1-02T" secondAttribute="bottom" id="y2w-3J-kyJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UuR-wv-ida"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="GvL-WQ-rji"/>
+                    <connections>
+                        <outlet property="csvTextView" destination="8hv-l1-02T" id="waw-yO-IAc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QsD-VE-bGV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

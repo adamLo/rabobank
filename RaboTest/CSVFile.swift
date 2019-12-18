@@ -10,12 +10,13 @@ import Foundation
 
 typealias CSVLine = [String: Any]
 typealias LineReadBlock = ((_ index: Int?, _ line: CSVLine?) -> ())
-typealias CompletionBlock = ((_ errors: [Error]?) -> ())
+typealias CompletionBlock = ((_ text: String?, _ errors: [Error]?) -> ())
 
 class CSVFile {
     
     /// Contains field names
     private(set) var fieldNames = [String]()
+    
     /// Contains loaded lines
     private var _lines = [CSVLine]()
     var lines: [[String: Any]] {
@@ -25,9 +26,9 @@ class CSVFile {
             }
         }
     }
-    
+    // Queues to handle threading
     private let linesWriteQueue = DispatchQueue(label: "LinesWriteQueue")
-    private let linesReadQueue = DispatchQueue(label: "Lines ReadQueue")
+    private let linesReadQueue = DispatchQueue(label: "LinesReadQueue")
     
     /// URL to file in the bundle
     private let fileURL: URL
@@ -48,8 +49,7 @@ class CSVFile {
         self.fileURL = localFileURL
     }
     
-    private var stopReading = false
-        
+    /// Loads csv file and calls lineRead after each line loaded and parsed and completion when finished
     func load(lineRead: LineReadBlock?, completion: CompletionBlock?) {
         
         stopReading = false
@@ -61,7 +61,7 @@ class CSVFile {
             
             guard let stream = InputStream(fileAtPath: self.fileURL.path) else {
                 DispatchQueue.main.async {
-                    completion?([self.createError(code: -1, message: NSLocalizedString("Error opening file", comment: "Error message when failed to open file"))])
+                    completion?(nil, [self.createError(code: -1, message: NSLocalizedString("Error opening file", comment: "Error message when failed to open file"))])
                 }
                 return
             }
@@ -100,14 +100,16 @@ class CSVFile {
             }
             
             DispatchQueue.main.async {
-                completion?(errors.isEmpty ? nil : errors)
+                completion?(text, errors.isEmpty ? nil : errors)
             }
         }
     }
     
+    /// Stops further loading
     func stopLoading() {
         stopReading = true
     }
+    private var stopReading = false
     
     @discardableResult
     func process(textRead: String, leftOver: String, final: Bool, lineIndex: inout Int, lineRead: LineReadBlock?) -> String {

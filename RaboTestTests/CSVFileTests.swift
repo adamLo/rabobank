@@ -265,4 +265,66 @@ class CSVFileTests: XCTestCase {
         XCTAssertEqual(file?.fieldNames[2], "Issue count")
         XCTAssertEqual(file?.fieldNames[3], "Date of birth")
     }
+    
+    // MARK: - Measure load time
+    
+    func testLoad3Lines() {
+        
+        XCTAssertNotNil(csvURL)
+        
+        let file = CSVFile(localFileURL: csvURL)
+        XCTAssertNotNil(file)
+        
+        self.measure {
+            
+            let expectation = self.expectation(description: "Load3Lines")
+            
+            file?.load(lineRead: { (index, line) in
+            }, completion: { (_text, _errors) in
+                expectation.fulfill()
+            })
+            
+            waitForExpectations(timeout: 1, handler: nil)
+        }
+    }
+    
+    func testLoad2000Lines() {
+
+        let path = Bundle.main.path(forResource: "2000lines", ofType: "csv")
+        XCTAssertNotNil(path)
+        let file = CSVFile(localFileURL: URL(fileURLWithPath: path!))
+        XCTAssertNotNil(file)
+        
+        self.measure {
+            
+            let expectation = self.expectation(description: "Load2000Lines")
+            
+            file?.load(lineRead: { (index, line) in
+            }, completion: { (_text, _errors) in
+                expectation.fulfill()
+            })
+            
+            waitForExpectations(timeout: 60, handler: nil)
+        }
+    }
+    
+    func testLoad10000Lines() {
+
+        let path = Bundle.main.path(forResource: "10000lines", ofType: "csv")
+        XCTAssertNotNil(path)
+        let file = CSVFile(localFileURL: URL(fileURLWithPath: path!))
+        XCTAssertNotNil(file)
+        
+        self.measure {
+            
+            let expectation = self.expectation(description: "Load10000Lines")
+            
+            file?.load(lineRead: { (index, line) in
+            }, completion: { (_text, _errors) in
+                expectation.fulfill()
+            })
+            
+            waitForExpectations(timeout: 60, handler: nil)
+        }
+    }
 }

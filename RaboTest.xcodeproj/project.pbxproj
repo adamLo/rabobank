@@ -51,6 +51,10 @@
 		192B81A723AA5C87002458D7 /* ErrorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81A523AA5C87002458D7 /* ErrorsViewController.swift */; };
 		192B81A923AA5C9C002458D7 /* ErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81A823AA5C9C002458D7 /* ErrorCell.swift */; };
 		192B81AA23AA5C9C002458D7 /* ErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81A823AA5C9C002458D7 /* ErrorCell.swift */; };
+		192B81AC23AA6F07002458D7 /* 2000lines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B81AB23AA6F07002458D7 /* 2000lines.csv */; };
+		192B81AD23AA6F22002458D7 /* 2000lines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B81AB23AA6F07002458D7 /* 2000lines.csv */; };
+		192B81B123AA7283002458D7 /* 10000lines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B81B023AA7283002458D7 /* 10000lines.csv */; };
+		192B81B223AA7283002458D7 /* 10000lines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B81B023AA7283002458D7 /* 10000lines.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +105,8 @@
 		192B81A123AA5A95002458D7 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		192B81A523AA5C87002458D7 /* ErrorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsViewController.swift; sourceTree = "<group>"; };
 		192B81A823AA5C9C002458D7 /* ErrorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCell.swift; sourceTree = "<group>"; };
+		192B81AB23AA6F07002458D7 /* 2000lines.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = 2000lines.csv; sourceTree = "<group>"; };
+		192B81B023AA7283002458D7 /* 10000lines.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = 10000lines.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +222,8 @@
 				192B816423A7CCA1002458D7 /* invalid1.csv */,
 				192B816A23A7CDEF002458D7 /* invalid2.csv */,
 				192B815F23A7C86B002458D7 /* emptyfile.csv */,
+				192B81AB23AA6F07002458D7 /* 2000lines.csv */,
+				192B81B023AA7283002458D7 /* 10000lines.csv */,
 			);
 			name = "Test Data";
 			sourceTree = "<group>";
@@ -373,9 +381,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				192B816923A7CD12002458D7 /* emptyfile.csv in Resources */,
+				192B81B123AA7283002458D7 /* 10000lines.csv in Resources */,
 				192B815923A7C547002458D7 /* issues.csv in Resources */,
 				192B816B23A7CDEF002458D7 /* invalid2.csv in Resources */,
 				192B812423A79F0A002458D7 /* LaunchScreen.storyboard in Resources */,
+				192B81AD23AA6F22002458D7 /* 2000lines.csv in Resources */,
 				192B816823A7CD10002458D7 /* invalid1.csv in Resources */,
 				192B812123A79F0A002458D7 /* Assets.xcassets in Resources */,
 				192B811F23A79F08002458D7 /* Main.storyboard in Resources */,
@@ -386,9 +396,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192B81AC23AA6F07002458D7 /* 2000lines.csv in Resources */,
 				192B816123A7C86B002458D7 /* emptyfile.csv in Resources */,
 				192B815A23A7C547002458D7 /* issues.csv in Resources */,
 				192B816623A7CCA1002458D7 /* invalid1.csv in Resources */,
+				192B81B223AA7283002458D7 /* 10000lines.csv in Resources */,
 				192B816C23A7CDEF002458D7 /* invalid2.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

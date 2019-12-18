@@ -38,12 +38,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return file?.lines.count ?? 0
+        return max(min(file?.lines.count ?? 0, lastIndex + 1), 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let lines = file?.lines, lines.count > indexPath.row, let cell = tableView.dequeueReusableCell(withIdentifier: ListLineCell.reuseId, for: indexPath) as? ListLineCell {
+        if let lines = file?.lines, lines.count >= lastIndex, lastIndex >= indexPath.row, let cell = tableView.dequeueReusableCell(withIdentifier: ListLineCell.reuseId, for: indexPath) as? ListLineCell {
             
             let line = lines[indexPath.row]
             cell.setup(values: line)
@@ -84,18 +84,31 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: - CSVDisplayController
     
+    private var lastIndex = -1
+    
     weak var file: CSVFile?
     
     func add(line: [String : Any], index: Int) {
         
-//        listTableView.beginUpdates()
-//        listTableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .none)
-//        listTableView.endUpdates()
-        listTableView.reloadData()
+        let previousIndex = lastIndex
+        lastIndex = index
+        
+        if previousIndex >= 0, index > previousIndex {
+            
+            listTableView.beginUpdates()
+            for newIndex in previousIndex..<index {
+                listTableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .none)
+            }
+            listTableView.endUpdates()
+        }
+        else {
+            listTableView.reloadData()
+        }
     }
     
     func readComplete(errors: [Error]?) {
         
+        lastIndex = max(lastIndex, (file?.lines.count ?? 0) - 1)
         listTableView.reloadData()
     }
 }

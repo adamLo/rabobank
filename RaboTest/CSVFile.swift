@@ -33,7 +33,7 @@ class CSVFile {
     private let fileURL: URL
     
     /// Maximum number of characters to load at a time
-    private let maxReadLength = 256
+    private let maxReadLength = 512
     
     /// Date formatter to parse date strings
     private let dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
@@ -85,7 +85,7 @@ class CSVFile {
                 }
                 else if numberOfBytesRead > 0 {
                     
-                    if let textRead = String(bytesNoCopy: buffer, length: numberOfBytesRead, encoding: .utf8, freeWhenDone: true) {
+                    if let textRead = String(bytesNoCopy: buffer, length: numberOfBytesRead, encoding: .utf8, freeWhenDone: false) {
                         
                         text.append(textRead)
                         leftOver = self.process(textRead: textRead, leftOver: leftOver, final: false, lineIndex: &lineIndex, lineRead: lineRead)

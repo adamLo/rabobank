@@ -44,17 +44,51 @@ class MainViewController: UITabBarController {
         if let path = Bundle.main.path(forResource: "issues", ofType: "csv"), let _file = CSVFile(localFileURL: URL(fileURLWithPath: path)) {
         
             file = _file
+            updateTabs(file: _file)
+            
+            _file.load(lineRead: {[weak self] (index, line) in
+                
+                if let _self = self, let _index = index, let _line = line {
+                    _self.updateTabs(index: _index, line: _line)
+                }
+            }) {[weak self] (errors) in
+                
+                self?.updateTabs(errors: errors)
+            }
         }
     }
     
-    private func updateTabs(text: String?) {
+    private func updateTabs(file: CSVFile) {
 
         if let _controllers = viewControllers {
-            
             for controller in _controllers {
                 
-                if var _controller = controller as? ListViewController {
-
+                if var _controller = controller as? CSVDisplayController {
+                    _controller.file = file
+                }
+            }
+        }
+    }
+    
+    private func updateTabs(index: Int, line: CSVLine) {
+        
+        if let _controllers = viewControllers {
+            for controller in _controllers {
+                
+                if let _controller = controller as? CSVDisplayController {
+                    _controller.add(line: line, index: index)
+                }
+            }
+        }
+    }
+    
+    private func updateTabs(errors: [Error]?) {
+        
+        if let _controllers = viewControllers {
+            for controller in _controllers {
+                
+                if let _controller = controller as? CSVDisplayController {
+                    _controller.readComplete(errors: errors)
                 }
             }
         }

@@ -72,14 +72,15 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     weak var file: CSVFile?
     
-    func lineAdded(values: [String : Any], fieldNames: [String : String]) {
+    func add(line: [String : Any], index: Int) {
         
-        listTableView.beginUpdates()
-        
-        listTableView.endUpdates()
+//        listTableView.beginUpdates()
+//        listTableView.insertRows(at: [IndexPath(row: index, section: 0)], with: .none)
+//        listTableView.endUpdates()
+        listTableView.reloadData()
     }
     
-    func readComplete() {
+    func readComplete(errors: [Error]?) {
         
         listTableView.reloadData()
     }

@@ -12,6 +12,6 @@ protocol CSVDisplayController {
     
     var file: CSVFile? {get set}
     
-    func lineAdded(values: [String: Any], fieldNames: [String: String])
-    func readComplete()
+    func add(line: [String: Any], index: Int)
+    func readComplete(errors: [Error]?)
 }

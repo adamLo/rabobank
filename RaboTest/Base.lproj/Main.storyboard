@@ -51,24 +51,52 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="lineCell" rowHeight="40" id="qIc-Z4-Jko">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="lineCell" rowHeight="40" id="qIc-Z4-Jko" customClass="ListLineCell" customModule="RaboTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qIc-Z4-Jko" id="3RH-fB-itw">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ScU-Fw-K74">
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1a-fS-wEz">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
-                                                </stackView>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTu-Jx-bnf">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="hf9-Kq-NVQ"/>
+                                                                <constraint firstAttribute="width" constant="414" id="ibD-pj-CCy"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="HTu-Jx-bnf" firstAttribute="top" secondItem="r1a-fS-wEz" secondAttribute="top" id="B39-yW-avP"/>
+                                                        <constraint firstAttribute="trailing" secondItem="HTu-Jx-bnf" secondAttribute="trailing" id="Dg8-x2-FhF"/>
+                                                        <constraint firstItem="HTu-Jx-bnf" firstAttribute="leading" secondItem="r1a-fS-wEz" secondAttribute="leading" id="V8L-up-v2V"/>
+                                                        <constraint firstAttribute="height" constant="40" id="ml7-CE-Myk"/>
+                                                        <constraint firstItem="HTu-Jx-bnf" firstAttribute="centerX" secondItem="r1a-fS-wEz" secondAttribute="centerX" id="qEh-N1-sPt"/>
+                                                        <constraint firstItem="HTu-Jx-bnf" firstAttribute="centerY" secondItem="r1a-fS-wEz" secondAttribute="centerY" id="rbQ-wP-8vi"/>
+                                                        <constraint firstAttribute="bottom" secondItem="HTu-Jx-bnf" secondAttribute="bottom" id="tmY-4P-BXN"/>
+                                                    </constraints>
+                                                    <viewLayoutGuide key="contentLayoutGuide" id="BsF-sN-o4L"/>
+                                                    <viewLayoutGuide key="frameLayoutGuide" id="ePf-ns-MSE"/>
+                                                </scrollView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="ScU-Fw-K74" secondAttribute="bottom" id="BkT-lB-FNh"/>
-                                                <constraint firstAttribute="trailing" secondItem="ScU-Fw-K74" secondAttribute="trailing" id="IeT-qy-div"/>
-                                                <constraint firstItem="ScU-Fw-K74" firstAttribute="leading" secondItem="3RH-fB-itw" secondAttribute="leading" id="St7-Pg-OnE"/>
-                                                <constraint firstItem="ScU-Fw-K74" firstAttribute="top" secondItem="3RH-fB-itw" secondAttribute="top" id="kve-uJ-ySq"/>
+                                                <constraint firstAttribute="trailing" secondItem="r1a-fS-wEz" secondAttribute="trailing" id="9Hj-d4-MIs"/>
+                                                <constraint firstAttribute="bottom" secondItem="r1a-fS-wEz" secondAttribute="bottom" id="ES1-tv-uwd"/>
+                                                <constraint firstItem="r1a-fS-wEz" firstAttribute="leading" secondItem="3RH-fB-itw" secondAttribute="leading" id="dw0-ba-wlr"/>
+                                                <constraint firstItem="r1a-fS-wEz" firstAttribute="top" secondItem="3RH-fB-itw" secondAttribute="top" id="h5b-0z-GcI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="holderHeight" destination="hf9-Kq-NVQ" id="UxM-Ve-fGP"/>
+                                            <outlet property="holderView" destination="HTu-Jx-bnf" id="qho-Hn-FZd"/>
+                                            <outlet property="holderWidth" destination="ibD-pj-CCy" id="b7Q-vz-HMO"/>
+                                            <outlet property="scrollHeight" destination="ml7-CE-Myk" id="PQc-Su-1qX"/>
+                                            <outlet property="scrollView" destination="r1a-fS-wEz" id="omY-xN-vmZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

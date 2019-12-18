@@ -8,7 +8,8 @@
 
 import Foundation
 
-typealias LineReadBlock = ((_ index: Int?, _ line: [String: Any]?) -> ())
+typealias CSVLine = [String: Any]
+typealias LineReadBlock = ((_ index: Int?, _ line: CSVLine?) -> ())
 typealias CompletionBlock = ((_ errors: [Error]?) -> ())
 
 class CSVFile {
@@ -16,7 +17,7 @@ class CSVFile {
     /// Contains field names
     private(set) var fieldNames = [String]()
     /// Contains loaded lines
-    private var _lines = [[String: Any]]()
+    private var _lines = [CSVLine]()
     var lines: [[String: Any]] {
         get {
             linesReadQueue.sync {
@@ -181,7 +182,7 @@ class CSVFile {
         return lines
     }
     
-    func process(strings: [String], fieldNames: [String]) -> [String: Any] {
+    func process(strings: [String], fieldNames: [String]) -> CSVLine {
         
         var result = [String: Any]()
         

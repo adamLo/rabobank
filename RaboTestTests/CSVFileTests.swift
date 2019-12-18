@@ -40,12 +40,23 @@ class CSVFileTests: XCTestCase {
         let file = CSVFile(localFileURL: csvURL)
         XCTAssertNotNil(file)
         
-        let lines = file!.load()
-        XCTAssertNotNil(lines)
-        XCTAssertEqual(lines.count, 4)
+        var lineReadCount = 0
+        
+        let expectation = self.expectation(description: "LoadActualFile")
+        
+        file?.load(lineRead: { (line, error) in
+            lineReadCount += 1
+        }, completion: {
+            expectation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 2, handler: nil)
+        
+        XCTAssertNotNil(file?.lines)
+        XCTAssertEqual(file?.lines.count, 3)
     }
     
-    func testProcessReadText() {
+    func testProcessTextFinal() {
         
         XCTAssertNotNil(csvURL)
         
@@ -54,7 +65,22 @@ class CSVFileTests: XCTestCase {
         
         let text = "111\n222\n333"
         
-        let (lines, leftover) = file!.process(text: text)
+        let (lines, leftover) = file!.process(text: text, final: true)
+        
+        XCTAssertEqual(lines.count, 3)
+        XCTAssertEqual(leftover, "")
+    }
+    
+    func testProcessTextLeftover() {
+        
+        XCTAssertNotNil(csvURL)
+        
+        let file = CSVFile(localFileURL: csvURL)
+        XCTAssertNotNil(file)
+        
+        let text = "111\n222\n333"
+        
+        let (lines, leftover) = file!.process(text: text, final: false)
         
         XCTAssertEqual(lines.count, 2)
         XCTAssertEqual(leftover, "333")
@@ -75,5 +101,159 @@ class CSVFileTests: XCTestCase {
         XCTAssertEqual(lines[1], "bbb")
         XCTAssertEqual(lines[2], "ccc")
         XCTAssertEqual(lines[3], "ddd")
+    }
+    
+    func testValueConversionInt() {
+        
+        XCTAssertNotNil(csvURL)
+        
+        let file = CSVFile(localFileURL: csvURL)
+        XCTAssertNotNil(file)
+        
+        let string = "1"
+        let value = file!.value(of: string)
+        
+        XCTAssertEqual(value as? Int, 1)
+        XCTAssertNil(value as? Double)
+        XCTAssertNil(value as? Bool)
+        XCTAssertNil(value as? Date)
+        XCTAssertNil(value as? String)
+    }
+    
+    func testValueConversionDouble() {
+        
+        XCTAssertNotNil(csvURL)
+        
+        let file = CSVFile(localFileURL: csvURL)
+        XCTAssertNotNil(file)
+        
+        let string = "1.234"
+        let value = file!.value(of: string)
+        XCTAssertEqual(value as? Double, 1.234)
+        XCTAssertNil(value as? Int)
+        XCTAssertNil(value as? Bool)
+        XCTAssertNil(value as? Date)
+        XCTAssertNil(value as? String)
+    }
+    
+    func testValueConversionBoolTrue() {
+        
+        XCTAssertNotNil(csvURL)
+        
+        let file = CSVFile(localFileURL: csvURL)
+        XCTAssertNotNil(file)
+        
+        let string = "true"
+        let value = file!.value(of: string)
+        XCTAssertEqual(value as? Bool, true)
+        XCTAssertNil(value as? Double)
+        XCTAssertNil(value as? Int)
+        XCTAssertNil(value as? Date)
+        XCTAssertNil(value as? String)
+    }
+    
+    func testValueConversionBoolFalse() {
+        
+        XCTAssertNotNil(csvURL)
+        
+        let file = CSVFile(localFileURL: csvURL)
+        XCTAssertNotNil(file)
+        
+        let string = "false"
+        let value = file!.value(of: string)
+        XCTAssertEqual(value as? Bool, false)
+        XCTAssertNil(value as? Double)
+        XCTAssertNil(value as? Int)
+        XCTAssertNil(value as? Date)
+        XCTAssertNil(value as? String)
+    }
+    
+    func testValueConversionDate() {
+        
+        XCTAssertNotNil(csvURL)
+        
+        let file = CSVFile(localFileURL: csvURL)
+        XCTAssertNotNil(file)
+        
+        let string = "1978-01-02T00:00:00"
+        let value = file!.value(of: string)
+        XCTAssertNotNil(value as? Date)
+        XCTAssertNil(value as? Double)
+        XCTAssertNil(value as? Bool)
+        XCTAssertNil(value as? Int)
+        XCTAssertNil(value as? String)
+    }
+    
+    func testValueConversionString() {
+        
+        XCTAssertNotNil(csvURL)
+        
+        let file = CSVFile(localFileURL: csvURL)
+        XCTAssertNotNil(file)
+        
+        let string = "string"
+        let value = file!.value(of: string)
+        XCTAssertNotNil(value as? String)
+        XCTAssertNil(value as? Double)
+        XCTAssertNil(value as? Bool)
+        XCTAssertNil(value as? Date)
+        XCTAssertNil(value as? Int)
+    }
+    
+    func testProcessStrings() {
+        
+        XCTAssertNotNil(csvURL)
+        
+        let file = CSVFile(localFileURL: csvURL)
+        XCTAssertNotNil(file)
+        
+        let strings = ["Theo","Jansen","5","1978-01-02T00:00:00"]
+        let fieldNames = ["First name","Sur name","Issue count","Date of birth"]
+        let values = file!.process(strings: strings, fieldNames: fieldNames)
+        
+        XCTAssertEqual(values.count, 4)
+        XCTAssertEqual(values["First name"] as? String, "Theo")
+        XCTAssertEqual(values["Sur name"] as? String, "Jansen")
+        XCTAssertEqual(values["Issue count"] as? Int, 5)
+        XCTAssertNotNil(values["Date of birth"] as? Date)
+    }
+    
+    func testProcessTextRead() {
+                
+        XCTAssertNotNil(csvURL)
+        
+        let file = CSVFile(localFileURL: csvURL)
+        XCTAssertNotNil(file)
+        
+        let leftover = "\"First name\",\"Sur name\",\"Issue count\","
+        let textRead = "\"Date of birth\"\n\"Theo\",\"Jansen\",5,\"1978-01-02T00:00:00\"\n\"Fiona\""
+        var lineIndex = 0
+        
+        let expectation = self.expectation(description: "ProcessTextRead")
+        var error: Error?
+        var values: [String: Any]?
+        
+        let processedLeftover = file!.process(textRead: textRead, leftOver: leftover, final: false, lineIndex: &lineIndex) { (_values, _error) in
+            error = _error
+            values = _values
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 2, handler: nil)
+        
+        XCTAssertNotNil(values)
+        XCTAssertEqual(values?.count, 4)
+        XCTAssertEqual(values?["First name"] as? String, "Theo")
+        XCTAssertEqual(values?["Sur name"] as? String, "Jansen")
+        XCTAssertEqual(values?["Issue count"] as? Int, 5)
+        XCTAssertNotNil(values?["Date of birth"] as? Date)
+        XCTAssertEqual(processedLeftover, "\"Fiona\"")
+        XCTAssertNil(error)
+        XCTAssertEqual(lineIndex, 2)
+        XCTAssertEqual(file?.fieldNames.count, 4)
+        XCTAssertEqual(file?.fieldNames[0], "First name")
+        XCTAssertEqual(file?.fieldNames[1], "Sur name")
+        XCTAssertEqual(file?.fieldNames[2], "Issue count")
+        XCTAssertEqual(file?.fieldNames[3], "Date of birth")
     }
 }

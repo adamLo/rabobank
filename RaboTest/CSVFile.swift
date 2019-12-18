@@ -21,8 +21,11 @@ class CSVFile {
     /// URL to file in the bundle
     private let fileURL: URL
     
-    /// MAximum number of characters to load at a time
+    /// Maximum number of characters to load at a time
     private let maxReadLength = 256
+    
+    /// Date formatter to parse date strings
+    private let dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
     
     /// Initialize with an URL to a local file in the bundle
     init?(localFileURL: URL) {
@@ -68,28 +71,16 @@ class CSVFile {
                     if let textRead = String(bytesNoCopy: buffer, length: numberOfBytesRead, encoding: .utf8, freeWhenDone: true) {
                         
                         text.append(textRead)
-                        
-                        let (_lines, _leftover) = self.process(text: textRead)
-                        if !_lines.isEmpty {
-                            for line in _lines {
-                                let values = self.process(line: line)
-                                if lineIndex == 0 {
-                                    self.fieldNames = values
-                                }
-                                
-                                lineIndex += 1
-                            }
-                        }
-                        leftOver = _leftover
+                        leftOver = self.process(textRead: textRead, leftOver: leftOver, final: false, lineIndex: &lineIndex, lineRead: lineRead)
                     }
                 }
             }
             
-            if let _leftover = leftOver.nilIfEmpty {
-                
-            }
-            
             stream.close()
+            
+            if let _leftover = leftOver.nilIfEmpty {
+                self.process(textRead: "", leftOver: _leftover, final: true, lineIndex: &lineIndex, lineRead: lineRead)
+            }
             
             DispatchQueue.main.async {
                 completion?()
@@ -101,7 +92,33 @@ class CSVFile {
         stopReading = true
     }
     
-    func process(text: String) -> (lines: [String], leftOver: String) {
+    @discardableResult
+    func process(textRead: String, leftOver: String, final: Bool, lineIndex: inout Int, lineRead: LineReadBlock?) -> String {
+        
+        let (_lines, _leftover) = self.process(text: "\(leftOver)\(textRead)", final: final)
+        if !_lines.isEmpty {
+            for line in _lines {
+                let strings = self.process(line: line)
+                if lineIndex == 0 {
+                    self.fieldNames = strings
+                }
+                else {
+                    let values = self.process(strings: strings, fieldNames: self.fieldNames)
+                    self.lines.append(values)
+                    
+                    DispatchQueue.main.async {
+                        lineRead?(values, nil)
+                    }
+                }
+                
+                lineIndex += 1
+            }
+        }
+        
+        return _leftover
+    }
+    
+    func process(text: String, final: Bool) -> (lines: [String], leftOver: String) {
         
         let nsText = NSMutableString(string: text)
         var lines = [String]()
@@ -116,6 +133,11 @@ class CSVFile {
             nsText.deleteCharacters(in: NSMakeRange(0, range.location + 1))
             
             range = nsText.range(of: "\n")
+        }
+        
+        if nsText.length > 0, final {
+            lines.append(String(nsText))
+            nsText.deleteCharacters(in: NSMakeRange(0, nsText.length))
         }
         
         return (lines, String(nsText))
@@ -138,4 +160,49 @@ class CSVFile {
         
         return lines
     }
+    
+    func process(strings: [String], fieldNames: [String]) -> [String: Any] {
+        
+        var result = [String: Any]()
+        
+        for index in 0..<strings.count {
+            
+            var fieldName = String(index)
+            if index < fieldNames.count, let _name = fieldNames[index].nilIfEmpty {
+                fieldName = _name
+            }
+            
+            let stringValue = strings[index]
+            let _value = value(of: stringValue)
+            
+            result[fieldName] = _value
+        }
+        
+        return result
+    }
+    
+    func value(of string: String) -> Any {
+        
+        if let value = Int(string) {
+            return value
+        }
+        else if let value = Double(string) {
+            return value
+        }
+        else if let value = Bool(string) {
+            return value
+        }
+        else if let value = dateFormatter.date(from: string) {
+            return value
+        }
+        
+        return string
+    }
+    
+    private lazy var dateFormatter: DateFormatter = {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = dateFormat
+        return formatter
+    }()
 }

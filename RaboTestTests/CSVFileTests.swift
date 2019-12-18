@@ -287,6 +287,8 @@ class CSVFileTests: XCTestCase {
             })
             
             waitForExpectations(timeout: 1, handler: nil)
+            
+            XCTAssertEqual(file?.lines.count, 3)
         }
     }
     
@@ -307,6 +309,8 @@ class CSVFileTests: XCTestCase {
             })
             
             waitForExpectations(timeout: 60, handler: nil)
+            
+            XCTAssertEqual(file?.lines.count, 2000)
         }
     }
     
@@ -327,6 +331,8 @@ class CSVFileTests: XCTestCase {
             })
             
             waitForExpectations(timeout: 60, handler: nil)
+            
+            XCTAssertEqual(file?.lines.count, 10000)
         }
     }
 }

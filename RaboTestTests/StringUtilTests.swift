@@ -151,4 +151,70 @@ class StringUtilTests: XCTestCase {
         XCTAssertNotEqual(original, trimmed)
         XCTAssertEqual(trimmed, "")
     }
+    
+    // MARK: - String conversion
+    
+    func testIntToString() {
+        
+        let value: Any = 1
+        let string = String.from(value: value)
+        
+        XCTAssertEqual(string, "1")
+    }
+    
+    func testDoubleToString() {
+        
+        let value: Any = Double(1.234)
+        let string = String.from(value: value)
+        
+        XCTAssertEqual(string, "1.234")
+    }
+    
+    func testBoolTrueToString() {
+        
+        let value: Any = true
+        let string = String.from(value: value)
+        
+        XCTAssertEqual(string, "True")
+    }
+    
+    func testBoolFalseToString() {
+        
+        let value: Any = false
+        let string = String.from(value: value)
+        
+        XCTAssertEqual(string, "False")
+    }
+    
+    func testDateWithTimeToString() {
+        
+        var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
+        components.year = 2019
+        components.month = 12
+        components.day = 18
+        components.hour = 19
+        components.minute = 5
+        components.second = 11
+        
+        let value: Any = Calendar.current.date(from: components)!
+        let string = String.from(value: value)
+        
+        XCTAssertEqual(string, "Dec 18, 2019 at 7:05 PM")
+    }
+    
+    func testDateWithoutTimeToString() {
+        
+        var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: Date())
+        components.year = 2019
+        components.month = 12
+        components.day = 18
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        
+        let value: Any = Calendar.current.date(from: components)!
+        let string = String.from(value: value)
+        
+        XCTAssertEqual(string, "Dec 18, 2019")
+    }
 }

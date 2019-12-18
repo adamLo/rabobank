@@ -47,7 +47,7 @@ class CSVFileTests: XCTestCase {
         
         let expectation = self.expectation(description: "LoadActualFile")
         
-        file?.load(linesRead: { (index, line) in
+        file?.load(firstLineAsHeader: true, linesRead: { (index, line) in
             lineReadCount += 1
             lastIndex = index ?? 0
         }, completion: { (_text, _errors) in
@@ -242,7 +242,7 @@ class CSVFileTests: XCTestCase {
         let expectation = self.expectation(description: "ProcessTextRead")
         var values: CSVLine?
         
-        let processedLeftover = file!.process(textRead: textRead, leftOver: leftover, final: false, lineIndex: &lineIndex) { (index, lines) in
+        let processedLeftover = file!.process(textRead: textRead, leftOver: leftover, final: false, asHeader: true, lineIndex: &lineIndex) { (index, lines) in
             if let _values = lines?.first {
                 values = _values
             }
@@ -281,7 +281,7 @@ class CSVFileTests: XCTestCase {
             
             let expectation = self.expectation(description: "Load3Lines")
             
-            file?.load(linesRead: { (index, line) in
+            file?.load(firstLineAsHeader: true, linesRead: { (index, line) in
             }, completion: { (_text, _errors) in
                 expectation.fulfill()
             })
@@ -301,7 +301,7 @@ class CSVFileTests: XCTestCase {
             
             let expectation = self.expectation(description: "Load2000Lines")
             
-            file?.load(linesRead: { (index, line) in
+            file?.load(firstLineAsHeader: true, linesRead: { (index, line) in
             }, completion: { (_text, _errors) in
                 expectation.fulfill()
             })
@@ -321,7 +321,7 @@ class CSVFileTests: XCTestCase {
             
             let expectation = self.expectation(description: "Load10000Lines")
             
-            file?.load(linesRead: { (index, line) in
+            file?.load(firstLineAsHeader: true, linesRead: { (index, line) in
             }, completion: { (_text, _errors) in
                 expectation.fulfill()
             })

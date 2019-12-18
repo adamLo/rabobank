@@ -86,7 +86,7 @@ class MainViewController: UITabBarController {
             
             toggleActivity(true)
             
-            _file.load(linesRead: {[weak self] (index, lines) in
+            _file.load(firstLineAsHeader: true, linesRead: {[weak self] (index, lines) in
                 
                 if let _self = self, let _index = index, let _lines = lines {
                     _self.updateTabs(index: _index, lines: _lines)

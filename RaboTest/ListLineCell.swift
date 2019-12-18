@@ -27,8 +27,9 @@ class ListLineCell: UITableViewCell {
         }
     }
     
-    func setup(values: CSVLine) {
+    func setup(values: CSVLine, headers: [String]) {
         
+        lineController.headers = headers
         lineController.line = values
     }
 

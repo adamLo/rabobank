@@ -20,6 +20,8 @@ class LineViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    var headers: [String]!
+    
     class func controller() -> LineViewController {
         
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "LineViewController") as! LineViewController
@@ -32,7 +34,6 @@ class LineViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Do any additional setup after loading the view.
     }
     
-
     // MARK: - CollectionView
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -42,15 +43,33 @@ class LineViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return line != nil ? line.count : 0
+        var count = 0
+        
+        if headers != nil && !headers.isEmpty {
+            count = headers.count
+        }
+        else if line != nil && !line.isEmpty {
+            count = line.count
+        }
+        
+        return count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if line != nil, line.count > indexPath.item, let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.reuseId, for: indexPath) as? ItemCell {
+        if line != nil, let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemCell.reuseId, for: indexPath) as? ItemCell {
             
-            let title = Array(line.keys)[indexPath.item]
-            let value = line[title]
+            var title: String = ""
+            var value: Any = ""
+            
+            if headers != nil && indexPath.row < headers.count {
+                title = headers[indexPath.row]
+                value = line[title] ?? ""
+            }
+            else if line != nil && indexPath.row < line.count {
+                title = Array(line.keys)[indexPath.item]
+                value = line[title] ?? ""
+            }
             
             cell.setup(title: title, value: value)
             return cell
@@ -73,19 +92,26 @@ class LineViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         var width: CGFloat = 50
         
-        if line != nil, line.count > indexPath.item {
-            
-            let title = Array(line.keys)[indexPath.item]
-            let value = line[title]
-            
-            let font = UIFont.systemFont(ofSize: 17)
-            let titleWidth = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: font]).boundingRect(with: CGSize(width: 10000, height: 100), options: .usesLineFragmentOrigin, context: nil).size.width
-            var valueWidth: CGFloat = 0
-            if let _value = value {
-                valueWidth = NSAttributedString(string: "\(_value)", attributes: [NSAttributedString.Key.font: font]).boundingRect(with: CGSize(width: 10000, height: 100), options: .usesLineFragmentOrigin, context: nil).size.width
-            }
-            width = max(titleWidth, valueWidth)
+        var title: String = ""
+        var value: String = ""
+        var count = 0
+        
+        if headers != nil && indexPath.row < headers.count {
+            title = headers[indexPath.row]
+            value = "\(line[title] ?? ("" as Any))"
+            count = headers.count
         }
+        else if line != nil && indexPath.row < line.count {
+            title = Array(line.keys)[indexPath.item]
+            value = "\(line[title] ?? ("" as Any))"
+            count = line.count
+        }
+        
+        let font = UIFont.systemFont(ofSize: 17)
+        let titleWidth = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: font]).boundingRect(with: CGSize(width: 10000, height: 100), options: .usesLineFragmentOrigin, context: nil).size.width
+        let valueWidth = NSAttributedString(string: "\(value)", attributes: [NSAttributedString.Key.font: font]).boundingRect(with: CGSize(width: 10000, height: 100), options: .usesLineFragmentOrigin, context: nil).size.width
+
+        width = max(titleWidth, valueWidth) + CGFloat(max(count - 1, 1) * 5)
         
         return CGSize(width: width, height: collectionView.bounds.size.height)
     }

@@ -47,8 +47,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if let lines = file?.lines, lines.count >= lastIndex, lastIndex >= indexPath.row, let cell = tableView.dequeueReusableCell(withIdentifier: ListLineCell.reuseId, for: indexPath) as? ListLineCell {
             
+            let headers: [String] = file?.fieldNames ?? []
+            
             let line = lines[indexPath.row]
-            cell.setup(values: line)
+            cell.setup(values: line, headers: headers)
             return cell
         }
         
@@ -85,7 +87,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     // MARK: - CSVDisplayController
-    
+        
     private var lastIndex = -1
     
     weak var file: CSVFile?

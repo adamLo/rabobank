@@ -15,6 +15,14 @@ class ItemCell: UICollectionViewCell {
 
     static let reuseId = "itemCell"
     
+    override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        
+        titleLabel.font = UIFont.systemFont(ofSize: 15)
+        valueLabel.font = UIFont.systemFont(ofSize: 15)
+    }
+    
     func setup(title: String, value: Any?) {
         
         titleLabel.text = title

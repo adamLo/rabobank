@@ -34,6 +34,8 @@ class TextViewController: UIViewController, CSVDisplayController {
     private func setupUI() {
         
         title = NSLocalizedString("TXT", comment: "TXT display title")
+        
+        csvTextView.font = UIFont.systemFont(ofSize: 15)
     }
 
     // MARK: - CSVDisplayController

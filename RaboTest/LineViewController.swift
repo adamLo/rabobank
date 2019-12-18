@@ -106,7 +106,7 @@ class LineViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let value = String.from(value: line[title] ?? ("" as Any))
         
-        let font = UIFont.systemFont(ofSize: 17)
+        let font = UIFont.systemFont(ofSize: 15)
         let titleWidth = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: font]).boundingRect(with: CGSize(width: 10000, height: 100), options: .usesLineFragmentOrigin, context: nil).size.width
         let valueWidth = NSAttributedString(string: "\(value)", attributes: [NSAttributedString.Key.font: font]).boundingRect(with: CGSize(width: 10000, height: 100), options: .usesLineFragmentOrigin, context: nil).size.width
 

@@ -19,6 +19,7 @@ class ErrorCell: UITableViewCell {
         super.awakeFromNib()
         
         selectionStyle = .none
+        messageLabel.font = UIFont.systemFont(ofSize: 15)
     }
 
     func setup(error: Error) {

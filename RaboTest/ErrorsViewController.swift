@@ -18,6 +18,7 @@ class ErrorsViewController: UIViewController, CSVDisplayController, UITableViewD
         didSet {
             if isViewLoaded {
                 errorsTableView.reloadData()
+                toggleTableViewFooter()
             }
         }
     }
@@ -35,7 +36,25 @@ class ErrorsViewController: UIViewController, CSVDisplayController, UITableViewD
         
         title = NSLocalizedString("Errors", comment: "Errors display title")
         
-        errorsTableView.tableFooterView = UIView()
+        toggleTableViewFooter()
+    }
+    
+    private func toggleTableViewFooter() {
+
+        if (errors?.count ?? 0) == 0 {
+            
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: errorsTableView.bounds.size.width, height: 30.0))
+            label.autoresizingMask = [.flexibleWidth]
+            label.text = NSLocalizedString("No errors", comment: "Placeholder when no errors occured during reading")
+            label.font = UIFont.systemFont(ofSize: 15)
+            label.textAlignment = .center
+            
+            errorsTableView.tableFooterView = label
+        }
+        else {
+            
+            errorsTableView.tableFooterView = UIView()
+        }
     }
 
     // MARK: - TableView
@@ -60,6 +79,16 @@ class ErrorsViewController: UIViewController, CSVDisplayController, UITableViewD
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableView.automaticDimension
     }
     
     // MARK: - CSVDisplayController

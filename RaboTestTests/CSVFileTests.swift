@@ -41,12 +41,14 @@ class CSVFileTests: XCTestCase {
         XCTAssertNotNil(file)
         
         var lineReadCount = 0
+        var errors: [Error]?
         
         let expectation = self.expectation(description: "LoadActualFile")
         
-        file?.load(lineRead: { (line, error) in
+        file?.load(lineRead: { (line) in
             lineReadCount += 1
-        }, completion: {
+        }, completion: { (_errors) in
+            errors = _errors
             expectation.fulfill()
         })
         
@@ -54,6 +56,7 @@ class CSVFileTests: XCTestCase {
         
         XCTAssertNotNil(file?.lines)
         XCTAssertEqual(file?.lines.count, 3)
+        XCTAssertNil(errors)
     }
     
     func testProcessTextFinal() {
@@ -230,11 +233,9 @@ class CSVFileTests: XCTestCase {
         var lineIndex = 0
         
         let expectation = self.expectation(description: "ProcessTextRead")
-        var error: Error?
         var values: [String: Any]?
         
-        let processedLeftover = file!.process(textRead: textRead, leftOver: leftover, final: false, lineIndex: &lineIndex) { (_values, _error) in
-            error = _error
+        let processedLeftover = file!.process(textRead: textRead, leftOver: leftover, final: false, lineIndex: &lineIndex) { (_values) in
             values = _values
             expectation.fulfill()
         }
@@ -248,7 +249,6 @@ class CSVFileTests: XCTestCase {
         XCTAssertEqual(values?["Issue count"] as? Int, 5)
         XCTAssertNotNil(values?["Date of birth"] as? Date)
         XCTAssertEqual(processedLeftover, "\"Fiona\"")
-        XCTAssertNil(error)
         XCTAssertEqual(lineIndex, 2)
         XCTAssertEqual(file?.fieldNames.count, 4)
         XCTAssertEqual(file?.fieldNames[0], "First name")

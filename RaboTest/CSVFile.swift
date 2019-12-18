@@ -8,8 +8,8 @@
 
 import Foundation
 
-typealias LineReadBlock = ((_ line: [String: Any]?, _ error: Error?) -> ())
-typealias CompletionBlock = (() -> ())
+typealias LineReadBlock = ((_ line: [String: Any]?) -> ())
+typealias CompletionBlock = ((_ errors: [Error]?) -> ())
 
 class CSVFile {
     
@@ -26,6 +26,8 @@ class CSVFile {
     
     /// Date formatter to parse date strings
     private let dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+    
+    private let errorDomain = "CSVFILE"
     
     /// Initialize with an URL to a local file in the bundle
     init?(localFileURL: URL) {
@@ -46,7 +48,7 @@ class CSVFile {
             
             guard let stream = InputStream(fileAtPath: self.fileURL.path) else {
                 DispatchQueue.main.async {
-                    completion?()
+                    completion?([self.createError(code: -1, message: NSLocalizedString("Error opening file", comment: "Error message when failed to open file"))])
                 }
                 return
             }
@@ -58,13 +60,15 @@ class CSVFile {
             
             var lineIndex = 0
             
+            var errors = [Error]()
+            
             stream.open()
         
             while stream.hasBytesAvailable && !self.stopReading {
                 
                 let numberOfBytesRead = stream.read(buffer, maxLength: self.maxReadLength)
                 if numberOfBytesRead < 0, let error = stream.streamError {
-                  print(error)
+                    errors.append(error)
                 }
                 else if numberOfBytesRead > 0 {
                     
@@ -83,7 +87,7 @@ class CSVFile {
             }
             
             DispatchQueue.main.async {
-                completion?()
+                completion?(errors.isEmpty ? nil : errors)
             }
         }
     }
@@ -107,7 +111,7 @@ class CSVFile {
                     self.lines.append(values)
                     
                     DispatchQueue.main.async {
-                        lineRead?(values, nil)
+                        lineRead?(values)
                     }
                 }
                 
@@ -205,4 +209,9 @@ class CSVFile {
         formatter.dateFormat = dateFormat
         return formatter
     }()
+    
+    private func createError(code: Int, message: String) -> NSError {
+        
+        return NSError(domain: self.errorDomain, code: code, userInfo: [NSLocalizedDescriptionKey: message])
+    }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias LineReadBlock = ((_ line: [String: Any]?) -> ())
+typealias LineReadBlock = ((_ index: Int?, _ line: [String: Any]?) -> ())
 typealias CompletionBlock = ((_ errors: [Error]?) -> ())
 
 class CSVFile {
@@ -16,7 +16,17 @@ class CSVFile {
     /// Contains field names
     private(set) var fieldNames = [String]()
     /// Contains loaded lines
-    private(set) var lines = [[String: Any]]()
+    private var _lines = [[String: Any]]()
+    var lines: [[String: Any]] {
+        get {
+            linesReadQueue.sync {
+                return self._lines
+            }
+        }
+    }
+    
+    private let linesWriteQueue = DispatchQueue(label: "LinesWriteQueue")
+    private let linesReadQueue = DispatchQueue(label: "Lines ReadQueue")
     
     /// URL to file in the bundle
     private let fileURL: URL
@@ -42,7 +52,9 @@ class CSVFile {
     func load(lineRead: LineReadBlock?, completion: CompletionBlock?) {
         
         stopReading = false
-        lines.removeAll()
+        linesWriteQueue.sync {
+            _lines.removeAll()
+        }
         
         DispatchQueue.global(qos: .default).async {
             
@@ -108,10 +120,14 @@ class CSVFile {
                 }
                 else {
                     let values = self.process(strings: strings, fieldNames: self.fieldNames)
-                    self.lines.append(values)
                     
+                    self.linesReadQueue.async {
+                        self._lines.append(values)
+                    }
+                    
+                    let index = lineIndex
                     DispatchQueue.main.async {
-                        lineRead?(values)
+                        lineRead?(max(index - 1, 0), values)
                     }
                 }
                 

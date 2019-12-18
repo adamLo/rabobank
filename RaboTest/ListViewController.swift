@@ -9,17 +9,9 @@
 import UIKit
 
 /// Controller to display loaded issues in a list view
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, IssuesDisplayController {
+class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CSVDisplayController {
 
     @IBOutlet weak var listTableView: UITableView!
-    
-    var issues: [Issue]? {
-        didSet {
-            if isViewLoaded {
-                listTableView.reloadData()
-            }
-        }
-    }
     
     // MARK: - Controller Lifecycle
     
@@ -46,15 +38,15 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return issues?.count ?? 0
+        return file?.lines.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let _issues = issues, _issues.count > indexPath.row, let cell = tableView.dequeueReusableCell(withIdentifier: IssueListCell.reuseId, for: indexPath) as? IssueListCell {
+        if let lines = file?.lines, lines.count > indexPath.row, let cell = tableView.dequeueReusableCell(withIdentifier: ListLineCell.reuseId, for: indexPath) as? ListLineCell {
             
-            let issue = _issues[indexPath.row]
-            cell.setup(with: issue)
+            let line = lines[indexPath.row]
+            cell.setup(values: line)
             return cell
         }
         
@@ -63,7 +55,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 85.0
+        return 40.0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -74,5 +66,21 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    // MARK: - CSVDisplayController
+    
+    weak var file: CSVFile?
+    
+    func lineAdded(values: [String : Any], fieldNames: [String : String]) {
+        
+        listTableView.beginUpdates()
+        
+        listTableView.endUpdates()
+    }
+    
+    func readComplete() {
+        
+        listTableView.reloadData()
     }
 }

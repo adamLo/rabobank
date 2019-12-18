@@ -9,8 +9,6 @@
 import UIKit
 
 class MainViewController: UITabBarController {
-
-    private(set) var issues: [Issue]?
     
     // MARK: - Controller Lifecycle
     
@@ -39,24 +37,13 @@ class MainViewController: UITabBarController {
     
     // MARK: - Data integrations
     
+    var file: CSVFile?
+    
     private func loadBundleData() {
         
-        issues = nil
+        if let path = Bundle.main.path(forResource: "issues", ofType: "csv"), let _file = CSVFile(localFileURL: URL(fileURLWithPath: path)) {
         
-        if let path = Bundle.main.path(forResource: "issues", ofType: "csv"), let processor = CSVProcessor(localFileURL: URL(fileURLWithPath: path)) {
-        
-            processor.loadAndProcess {[weak self] (text, _issues, error) in
-                
-                guard let _self = self else {return}
-                
-                _self.issues = _issues
-                
-                _self.updateTabs(text: text)
-                
-                if let _error = error {
-                    _self.show(error: _error)
-                }
-            }
+            file = _file
         }
     }
     
@@ -66,8 +53,8 @@ class MainViewController: UITabBarController {
             
             for controller in _controllers {
                 
-                if var _controller = controller as? IssuesDisplayController {
-                    _controller.issues = issues
+                if var _controller = controller as? ListViewController {
+
                 }
             }
         }

@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,87 +26,14 @@
         <!--Item 2-->
         <scene sceneID="KdL-v0-NGX">
             <objects>
-                <viewController id="NVG-uQ-dPo" customClass="GridViewController" customModule="RaboTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NVG-uQ-dPo" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DsP-7Z-7Fq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kax-vT-mdV">
-                                <rect key="frame" x="0.0" y="44" width="414" height="643"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UhQ-Cj-2WI">
-                                    <size key="itemSize" width="192" height="130"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="issueGridCell" id="QQK-q9-jNR" customClass="IssueGridCell" customModule="RaboTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="192" height="130"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jFR-Us-506">
-                                            <rect key="frame" x="0.0" y="0.0" width="192" height="130"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9R-Ij-Yz3">
-                                                    <rect key="frame" x="8" y="8" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71Y-Pp-lYT">
-                                                    <rect key="frame" x="8" y="34" width="77" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issues Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHT-wc-b87">
-                                                    <rect key="frame" x="8" y="60" width="99.333333333333329" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="WHT-wc-b87" secondAttribute="bottom" id="CyT-OV-8Ky"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="d9R-Ij-Yz3" secondAttribute="trailing" id="O7v-e9-Ddc"/>
-                                                <constraint firstItem="71Y-Pp-lYT" firstAttribute="top" secondItem="d9R-Ij-Yz3" secondAttribute="bottom" constant="5" id="PpK-UR-vwD"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WHT-wc-b87" secondAttribute="trailing" id="XtK-xi-vBh"/>
-                                                <constraint firstItem="71Y-Pp-lYT" firstAttribute="leading" secondItem="d9R-Ij-Yz3" secondAttribute="leading" id="a2o-2j-Ps7"/>
-                                                <constraint firstItem="WHT-wc-b87" firstAttribute="leading" secondItem="d9R-Ij-Yz3" secondAttribute="leading" id="biN-hz-4ba"/>
-                                                <constraint firstItem="d9R-Ij-Yz3" firstAttribute="leading" secondItem="jFR-Us-506" secondAttribute="leadingMargin" id="fBG-1v-l7h"/>
-                                                <constraint firstItem="WHT-wc-b87" firstAttribute="top" secondItem="71Y-Pp-lYT" secondAttribute="bottom" constant="5" id="g4P-pz-bz5"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="71Y-Pp-lYT" secondAttribute="trailing" id="kwk-k8-MKx"/>
-                                                <constraint firstItem="d9R-Ij-Yz3" firstAttribute="top" secondItem="jFR-Us-506" secondAttribute="topMargin" id="vGF-Oy-aBH"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="192" height="130"/>
-                                        <connections>
-                                            <outlet property="birthDateLabel" destination="71Y-Pp-lYT" id="dAF-My-ti0"/>
-                                            <outlet property="issuesCountLabel" destination="WHT-wc-b87" id="Cq4-DC-UKC"/>
-                                            <outlet property="nameLabel" destination="d9R-Ij-Yz3" id="EgY-8H-tFg"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="NVG-uQ-dPo" id="ezv-gV-bD2"/>
-                                    <outlet property="delegate" destination="NVG-uQ-dPo" id="Iaq-At-1p9"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="UuR-wv-ida" firstAttribute="bottom" secondItem="Kax-vT-mdV" secondAttribute="bottom" id="51h-70-WIf"/>
-                            <constraint firstItem="Kax-vT-mdV" firstAttribute="leading" secondItem="UuR-wv-ida" secondAttribute="leading" id="QE5-6f-kbp"/>
-                            <constraint firstItem="UuR-wv-ida" firstAttribute="trailing" secondItem="Kax-vT-mdV" secondAttribute="trailing" id="Tuq-1u-Hf4"/>
-                            <constraint firstItem="Kax-vT-mdV" firstAttribute="top" secondItem="UuR-wv-ida" secondAttribute="top" id="oTd-BQ-cAU"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="UuR-wv-ida"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="GvL-WQ-rji"/>
-                    <connections>
-                        <outlet property="gridCollectionView" destination="Kax-vT-mdV" id="nuE-K6-EfF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QsD-VE-bGV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,50 +51,24 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="643"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="issueListCell" rowHeight="85" id="qIc-Z4-Jko" customClass="IssueListCell" customModule="RaboTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="85"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="lineCell" rowHeight="40" id="qIc-Z4-Jko">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qIc-Z4-Jko" id="3RH-fB-itw">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FP-Qr-Ctz">
-                                                    <rect key="frame" x="20" y="11" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Birth Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sF-mX-Vvd">
-                                                    <rect key="frame" x="20" y="32" width="77" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issues count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibb-bb-BIc">
-                                                    <rect key="frame" x="20.000000000000007" y="53" width="96.666666666666686" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ScU-Fw-K74">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5sF-mX-Vvd" firstAttribute="leading" secondItem="3FP-Qr-Ctz" secondAttribute="leading" id="8dh-Pg-Tic"/>
-                                                <constraint firstItem="Ibb-bb-BIc" firstAttribute="bottom" secondItem="3RH-fB-itw" secondAttribute="bottomMargin" id="FaW-aS-jN2"/>
-                                                <constraint firstItem="Ibb-bb-BIc" firstAttribute="top" secondItem="5sF-mX-Vvd" secondAttribute="bottom" id="PAB-2L-EeP"/>
-                                                <constraint firstItem="Ibb-bb-BIc" firstAttribute="leading" secondItem="3FP-Qr-Ctz" secondAttribute="leading" id="QXM-MU-gk3"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="5sF-mX-Vvd" secondAttribute="trailing" id="V8T-Hf-5A2"/>
-                                                <constraint firstItem="3FP-Qr-Ctz" firstAttribute="leading" secondItem="3RH-fB-itw" secondAttribute="leadingMargin" id="YoS-Xk-ZaS"/>
-                                                <constraint firstItem="3FP-Qr-Ctz" firstAttribute="top" secondItem="3RH-fB-itw" secondAttribute="topMargin" id="b6c-sb-QCb"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="3FP-Qr-Ctz" secondAttribute="trailing" id="g1u-LR-FgN"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Ibb-bb-BIc" secondAttribute="trailing" id="gp3-NZ-dxj"/>
-                                                <constraint firstItem="5sF-mX-Vvd" firstAttribute="top" secondItem="3FP-Qr-Ctz" secondAttribute="bottom" id="tr0-yy-eWg"/>
+                                                <constraint firstAttribute="bottom" secondItem="ScU-Fw-K74" secondAttribute="bottom" id="BkT-lB-FNh"/>
+                                                <constraint firstAttribute="trailing" secondItem="ScU-Fw-K74" secondAttribute="trailing" id="IeT-qy-div"/>
+                                                <constraint firstItem="ScU-Fw-K74" firstAttribute="leading" secondItem="3RH-fB-itw" secondAttribute="leading" id="St7-Pg-OnE"/>
+                                                <constraint firstItem="ScU-Fw-K74" firstAttribute="top" secondItem="3RH-fB-itw" secondAttribute="top" id="kve-uJ-ySq"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="birthDateLabel" destination="5sF-mX-Vvd" id="Hpk-w4-d4c"/>
-                                            <outlet property="issuesCountLabel" destination="Ibb-bb-BIc" id="hba-xQ-6OW"/>
-                                            <outlet property="nameLabel" destination="3FP-Qr-Ctz" id="gx2-8d-cy4"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

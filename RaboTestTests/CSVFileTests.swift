@@ -42,11 +42,13 @@ class CSVFileTests: XCTestCase {
         
         var lineReadCount = 0
         var errors: [Error]?
+        var lastIndex = -1
         
         let expectation = self.expectation(description: "LoadActualFile")
         
-        file?.load(lineRead: { (line) in
+        file?.load(lineRead: { (index, line) in
             lineReadCount += 1
+            lastIndex = index ?? 0
         }, completion: { (_errors) in
             errors = _errors
             expectation.fulfill()
@@ -56,6 +58,7 @@ class CSVFileTests: XCTestCase {
         
         XCTAssertNotNil(file?.lines)
         XCTAssertEqual(file?.lines.count, 3)
+        XCTAssertEqual(lastIndex, 2)
         XCTAssertNil(errors)
     }
     
@@ -231,12 +234,14 @@ class CSVFileTests: XCTestCase {
         let leftover = "\"First name\",\"Sur name\",\"Issue count\","
         let textRead = "\"Date of birth\"\n\"Theo\",\"Jansen\",5,\"1978-01-02T00:00:00\"\n\"Fiona\""
         var lineIndex = 0
+        var lastIndex = -1
         
         let expectation = self.expectation(description: "ProcessTextRead")
         var values: [String: Any]?
         
-        let processedLeftover = file!.process(textRead: textRead, leftOver: leftover, final: false, lineIndex: &lineIndex) { (_values) in
+        let processedLeftover = file!.process(textRead: textRead, leftOver: leftover, final: false, lineIndex: &lineIndex) { (index, _values) in
             values = _values
+            lastIndex = index ?? -1
             expectation.fulfill()
         }
         
@@ -250,6 +255,7 @@ class CSVFileTests: XCTestCase {
         XCTAssertNotNil(values?["Date of birth"] as? Date)
         XCTAssertEqual(processedLeftover, "\"Fiona\"")
         XCTAssertEqual(lineIndex, 2)
+        XCTAssertEqual(lastIndex, 0)
         XCTAssertEqual(file?.fieldNames.count, 4)
         XCTAssertEqual(file?.fieldNames[0], "First name")
         XCTAssertEqual(file?.fieldNames[1], "Sur name")

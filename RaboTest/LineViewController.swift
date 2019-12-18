@@ -93,19 +93,18 @@ class LineViewController: UIViewController, UICollectionViewDelegate, UICollecti
         var width: CGFloat = 50
         
         var title: String = ""
-        var value: String = ""
         var count = 0
         
         if headers != nil && indexPath.row < headers.count {
             title = headers[indexPath.row]
-            value = "\(line[title] ?? ("" as Any))"
             count = headers.count
         }
         else if line != nil && indexPath.row < line.count {
             title = Array(line.keys)[indexPath.item]
-            value = "\(line[title] ?? ("" as Any))"
             count = line.count
         }
+        
+        let value = String.from(value: line[title] ?? ("" as Any))
         
         let font = UIFont.systemFont(ofSize: 17)
         let titleWidth = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: font]).boundingRect(with: CGSize(width: 10000, height: 100), options: .usesLineFragmentOrigin, context: nil).size.width

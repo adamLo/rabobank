@@ -18,6 +18,8 @@ class ListLineCell: UITableViewCell {
         
         super.awakeFromNib()
         
+        separatorInset = .zero
+        
         if lineController == nil {
             
             lineController = LineViewController.controller()

@@ -18,6 +18,11 @@ class ItemCell: UICollectionViewCell {
     func setup(title: String, value: Any?) {
         
         titleLabel.text = title
-        valueLabel.text = "\(value ?? "X")"
+        if let _value = value {
+            valueLabel.text = String.from(value: _value)
+        }
+        else {
+            valueLabel.text = nil
+        }
     }
 }

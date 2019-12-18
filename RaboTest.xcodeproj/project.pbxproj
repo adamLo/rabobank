@@ -29,8 +29,6 @@
 		192B817023A7D784002458D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B816E23A7D783002458D7 /* MainViewController.swift */; };
 		192B817423A7DE5B002458D7 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B817323A7DE5B002458D7 /* ListViewController.swift */; };
 		192B817523A7DE5B002458D7 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B817323A7DE5B002458D7 /* ListViewController.swift */; };
-		192B818823A7E804002458D7 /* IssueCellLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818723A7E804002458D7 /* IssueCellLabels.swift */; };
-		192B818923A7E804002458D7 /* IssueCellLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818723A7E804002458D7 /* IssueCellLabels.swift */; };
 		192B818B23A8F7FE002458D7 /* CSVFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818A23A8F7FE002458D7 /* CSVFile.swift */; };
 		192B818C23A8F7FE002458D7 /* CSVFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818A23A8F7FE002458D7 /* CSVFile.swift */; };
 		192B818E23A8FD47002458D7 /* CSVFileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B818D23A8FD47002458D7 /* CSVFileTests.swift */; };
@@ -95,7 +93,6 @@
 		192B816A23A7CDEF002458D7 /* invalid2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = invalid2.csv; sourceTree = "<group>"; };
 		192B816E23A7D783002458D7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		192B817323A7DE5B002458D7 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		192B818723A7E804002458D7 /* IssueCellLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueCellLabels.swift; sourceTree = "<group>"; };
 		192B818A23A8F7FE002458D7 /* CSVFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFile.swift; sourceTree = "<group>"; };
 		192B818D23A8FD47002458D7 /* CSVFileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVFileTests.swift; sourceTree = "<group>"; };
 		192B819323AA2D6C002458D7 /* CSVDisplayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDisplayController.swift; sourceTree = "<group>"; };
@@ -202,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				192B815023A7AE52002458D7 /* StringUtil.swift */,
-				192B818723A7E804002458D7 /* IssueCellLabels.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -423,7 +419,6 @@
 				192B819B23AA4892002458D7 /* LineViewController.swift in Sources */,
 				192B815123A7AE52002458D7 /* StringUtil.swift in Sources */,
 				192B81A923AA5C9C002458D7 /* ErrorCell.swift in Sources */,
-				192B818823A7E804002458D7 /* IssueCellLabels.swift in Sources */,
 				192B819E23AA48B2002458D7 /* ItemCell.swift in Sources */,
 				192B818B23A8F7FE002458D7 /* CSVFile.swift in Sources */,
 				192B819423AA2D6C002458D7 /* CSVDisplayController.swift in Sources */,
@@ -462,7 +457,6 @@
 				192B81A723AA5C87002458D7 /* ErrorsViewController.swift in Sources */,
 				192B819F23AA48B2002458D7 /* ItemCell.swift in Sources */,
 				192B817023A7D784002458D7 /* MainViewController.swift in Sources */,
-				192B818923A7E804002458D7 /* IssueCellLabels.swift in Sources */,
 				192B819623AA2D6C002458D7 /* CSVDisplayController.swift in Sources */,
 				192B817523A7DE5B002458D7 /* ListViewController.swift in Sources */,
 				192B819C23AA4892002458D7 /* LineViewController.swift in Sources */,

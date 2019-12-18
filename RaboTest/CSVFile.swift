@@ -41,7 +41,7 @@ class CSVFile {
     private let maxReadLength = 512
     
     /// Date formatter to parse date strings
-    private let dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+    static let dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
     
     private let errorDomain = "CSVFILE"
     
@@ -236,7 +236,7 @@ class CSVFile {
     private lazy var dateFormatter: DateFormatter = {
         
         let formatter = DateFormatter()
-        formatter.dateFormat = dateFormat
+        formatter.dateFormat = CSVFile.dateFormat
         return formatter
     }()
     

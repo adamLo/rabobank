@@ -28,6 +28,8 @@ class ListLineCell: UITableViewCell {
             lineController.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             contentView.addSubview(lineController.view)
         }
+        
+        accessibilityIdentifier = "line.table.csv"
     }
     
     /// Sets up cell with a line from parsed CSV file, optionally with headers

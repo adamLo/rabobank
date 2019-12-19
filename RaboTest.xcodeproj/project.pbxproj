@@ -53,6 +53,7 @@
 		192B81AD23AA6F22002458D7 /* 2000lines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B81AB23AA6F07002458D7 /* 2000lines.csv */; };
 		192B81B123AA7283002458D7 /* 10000lines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B81B023AA7283002458D7 /* 10000lines.csv */; };
 		192B81B223AA7283002458D7 /* 10000lines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B81B023AA7283002458D7 /* 10000lines.csv */; };
+		192B81B423ABAEF3002458D7 /* ListViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81B323ABAEF3002458D7 /* ListViewControllerUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		192B81A823AA5C9C002458D7 /* ErrorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCell.swift; sourceTree = "<group>"; };
 		192B81AB23AA6F07002458D7 /* 2000lines.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = 2000lines.csv; sourceTree = "<group>"; };
 		192B81B023AA7283002458D7 /* 10000lines.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = 10000lines.csv; sourceTree = "<group>"; };
+		192B81B323ABAEF3002458D7 /* ListViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +183,9 @@
 		192B813823A79F0A002458D7 /* RaboTestUITests */ = {
 			isa = PBXGroup;
 			children = (
-				192B813923A79F0A002458D7 /* MainViewControllerUITests.swift */,
 				192B813B23A79F0A002458D7 /* Info.plist */,
+				192B813923A79F0A002458D7 /* MainViewControllerUITests.swift */,
+				192B81B323ABAEF3002458D7 /* ListViewControllerUITests.swift */,
 			);
 			path = RaboTestUITests;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			files = (
 				192B81A323AA5A95002458D7 /* TextViewController.swift in Sources */,
 				192B813A23A79F0A002458D7 /* MainViewControllerUITests.swift in Sources */,
+				192B81B423ABAEF3002458D7 /* ListViewControllerUITests.swift in Sources */,
 				192B819923AA2E80002458D7 /* ListLineCell.swift in Sources */,
 				192B81AA23AA5C9C002458D7 /* ErrorCell.swift in Sources */,
 				192B819023A8FDC5002458D7 /* StringUtil.swift in Sources */,

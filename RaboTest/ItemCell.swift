@@ -22,6 +22,9 @@ class ItemCell: UICollectionViewCell {
         
         titleLabel.font = UIFont.systemFont(ofSize: 15)
         valueLabel.font = UIFont.systemFont(ofSize: 15)
+        
+        titleLabel.accessibilityIdentifier = "title.line.table.csv"
+        valueLabel.accessibilityIdentifier = "value.line.table.csv"
     }
     
     /// Sets up cell. Title: name of field. Value: Value of field

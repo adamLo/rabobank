@@ -20,7 +20,7 @@ class ErrorsViewController: UIViewController, CSVDisplayController, UITableViewD
         didSet {
             if isViewLoaded {
                 errorsTableView.reloadData()
-                toggleTableViewFooter()
+                toggleTableViewFooter()                
             }
         }
     }

@@ -49,6 +49,8 @@ class TextViewController: UIViewController, CSVDisplayController {
     
     func readComplete(text: String?, errors: [Error]?) {
         
+        guard isViewLoaded else {return}
+        
         self.text = text ?? NSLocalizedString("Empty file", comment: "Placeholder for empty file content")
         if isViewLoaded {
             csvTextView.text = self.text

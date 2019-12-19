@@ -12,17 +12,15 @@ import UIKit
 class MainViewController: UITabBarController {
     
     // MARK: - Controller Lifecycle
-    
-    /// Name of CSV file to load and parse. Change here to load different file
-    private let fileToRead = "issues"
-    
+        
     override func viewDidLoad() {
         
         super.viewDidLoad()
 
         setupUI()
         setupViewIdentifiers()
-        loadBundleData()
+        
+        load(fileName: (UIApplication.shared.delegate as? AppDelegate)?.fileToRead.nilIfEmpty ?? "NO_FILE_PROVIDED")
     }
     
     // MARK: - UI Customization
@@ -59,6 +57,7 @@ class MainViewController: UITabBarController {
     
     // MARK: - UI manipulations
     
+    /// Toggles UI to show if loading in progress
     private func toggleActivity(_ loading: Bool) {
         
         if loading && navigationItem.rightBarButtonItem == nil {
@@ -80,16 +79,20 @@ class MainViewController: UITabBarController {
     
     // MARK: - Data integrations
     
+    /// CSV File loader and parser instance
     private var file: CSVFile?
     
-    private func loadBundleData() {
+    /// Loads file with given name
+    private func load(fileName: String) {
         
-        if let path = Bundle.main.path(forResource: fileToRead, ofType: "csv"), let _file = CSVFile(localFileURL: URL(fileURLWithPath: path)) {
+        if let path = Bundle.main.path(forResource: fileName, ofType: "csv"), let _file = CSVFile(localFileURL: URL(fileURLWithPath: path)) {
         
             file = _file
             updateTabs(file: _file)
             
             toggleActivity(true)
+            
+            updateTabs(text: nil, errors: nil)
             
             _file.load(firstLineAsHeader: true, linesRead: {[weak self] (index, lines) in
                 
@@ -102,8 +105,11 @@ class MainViewController: UITabBarController {
                 self?.toggleActivity(false)
             }
         }
+        else {
+            updateTabs(text: nil, errors: [NSError(domain: CSVFile.errorDomain, code: -3, userInfo: [NSLocalizedDescriptionKey: String(format: NSLocalizedString("File not found: %@", comment: "Error message format for file not found error"), "\(fileName).csv")])])
+        }
     }
-    
+        
     private func updateTabs(file: CSVFile) {
 
         if let _controllers = viewControllers {
@@ -137,6 +143,10 @@ class MainViewController: UITabBarController {
                     _controller.readComplete(text: text, errors: errors)
                 }
             }
+        }
+        
+        if tabBar.items?.count ?? 0 > 1 {
+            tabBar.items?[2].badgeValue = (errors?.isEmpty ?? true) ? nil : "!"
         }
     }
     

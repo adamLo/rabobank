@@ -56,6 +56,7 @@
 		192B81B423ABAEF3002458D7 /* ListViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81B323ABAEF3002458D7 /* ListViewControllerUITests.swift */; };
 		192B81B623ABB2EA002458D7 /* ErrorsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81B523ABB2EA002458D7 /* ErrorsViewControllerUITests.swift */; };
 		192B81B823ABBA22002458D7 /* TextViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81B723ABBA22002458D7 /* TextViewControllerTests.swift */; };
+		192B81BA23ABCDEC002458D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B811723A79F08002458D7 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -465,6 +466,7 @@
 				192B81AA23AA5C9C002458D7 /* ErrorCell.swift in Sources */,
 				192B819023A8FDC5002458D7 /* StringUtil.swift in Sources */,
 				192B819223A8FDDE002458D7 /* CSVFile.swift in Sources */,
+				192B81BA23ABCDEC002458D7 /* AppDelegate.swift in Sources */,
 				192B81A723AA5C87002458D7 /* ErrorsViewController.swift in Sources */,
 				192B819F23AA48B2002458D7 /* ItemCell.swift in Sources */,
 				192B817023A7D784002458D7 /* MainViewController.swift in Sources */,

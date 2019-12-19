@@ -17,6 +17,6 @@ protocol CSVDisplayController {
     /// Adds a parsed line to display. Lines: array of maps of parsed content. Index: last read line index
     func add(lines: [CSVLine], index: Int)
     
-    /// Called when loading and parsing completed
+    /// Called when loading and parsing completed. text: plain text read from file. errors: array of errors occured durin reading file
     func readComplete(text: String?, errors: [Error]?)
 }

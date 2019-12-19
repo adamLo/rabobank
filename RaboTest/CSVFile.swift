@@ -45,7 +45,7 @@ class CSVFile {
     static let dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
     
     /// Error domain, used when creating errors
-    private let errorDomain = "CSVFILE"
+    static let errorDomain = "CSVFILE"
     
     /// Indicates wheter loading and parsing is in progress
     private(set) var isLoading = false
@@ -63,7 +63,7 @@ class CSVFile {
         
         guard !isLoading else {
             DispatchQueue.main.async {
-                completion?(nil, [self.createError(code: -2, message: NSLocalizedString("Loading already in progress", comment: "Error message when invoced load() while loading in progress"))])
+                completion?(nil, [CSVFile.createError(code: -2, message: NSLocalizedString("Loading already in progress", comment: "Error message when invoced load() while loading in progress"))])
             }
             return
         }
@@ -78,7 +78,7 @@ class CSVFile {
             
             guard let stream = InputStream(fileAtPath: self.fileURL.path) else {
                 DispatchQueue.main.async {
-                    completion?(nil, [self.createError(code: -1, message: NSLocalizedString("Error opening file", comment: "Error message when failed to open file"))])
+                    completion?(nil, [CSVFile.createError(code: -1, message: NSLocalizedString("Error opening file", comment: "Error message when failed to open file"))])
                 }
                 return
             }
@@ -255,8 +255,8 @@ class CSVFile {
     }()
     
     /// Constructs an error from code and message
-    private func createError(code: Int, message: String) -> NSError {
+    static func createError(code: Int, message: String) -> NSError {
         
-        return NSError(domain: self.errorDomain, code: code, userInfo: [NSLocalizedDescriptionKey: message])
+        return NSError(domain: errorDomain, code: code, userInfo: [NSLocalizedDescriptionKey: message])
     }
 }

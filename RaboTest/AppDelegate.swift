@@ -10,11 +10,21 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+    
+    /// CSV file to read. Assumes .csv extension. Change here to test with different files!
+    private(set) var fileToRead = "issues"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Check for filename passed by UI tests
+        for argument in CommandLine.arguments {
+            if argument.starts(with: "FILE_TO_READ:") {
+                if argument.count > 13, let _fileName = NSString(string: argument).substring(from: 13).nilIfEmpty {
+                    self.fileToRead = _fileName
+                }
+            }
+        }
         return true
     }
 
@@ -31,7 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
 
 }
 

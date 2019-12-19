@@ -95,6 +95,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func add(lines: [CSVLine], index: Int) {
         
+        guard isViewLoaded else {return}
+        
         let previousIndex = lastIndex
         lastIndex = index
         
@@ -115,6 +117,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func readComplete(text: String?, errors: [Error]?) {
+        
+        guard isViewLoaded else {return}
         
         lastIndex = max(lastIndex, (file?.lines.count ?? 0) - 1)
         listTableView.reloadData()

@@ -275,6 +275,16 @@ class CSVFileTests: XCTestCase {
         XCTAssertEqual(file?.fieldNames[3], "Date of birth")
     }
     
+    func testErrorCreation() {
+        
+        let error = CSVFile.createError(code: -123, message: "TEST_ERROR")
+        
+        XCTAssertNotNil(error)
+        XCTAssertEqual(error.localizedDescription, "TEST_ERROR")
+        XCTAssertEqual(error.code, -123)
+        XCTAssertEqual(error.domain, CSVFile.errorDomain)
+    }
+    
     // MARK: - Measure load time
     
     func testLoad3Lines() {

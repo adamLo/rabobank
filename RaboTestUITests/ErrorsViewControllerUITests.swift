@@ -53,4 +53,20 @@ class ErrorsViewControllerUITests: XCTestCase {
         XCTAssertFalse(app.cells["cell.table.errors"].exists)
         XCTAssertFalse(app.staticTexts["message.cell.table.errors"].exists)
     }
+    
+    func testLoadFileError() {
+        
+        let app = XCUIApplication()
+        app.launchArguments = ["FILE_TO_READ:badfile"]
+        app.launch()
+        
+        XCTAssertTrue(app.tabBars.buttons["errors.tab.main"].exists)
+        
+        app.tabBars.buttons["errors.tab.main"].tap()
+        
+        XCTAssertTrue(app.tables["table.errors"].exists)
+        XCTAssertFalse(app.staticTexts["empty_placeholder.table.errors"].exists)
+        XCTAssertTrue(app.cells["cell.table.errors"].exists)
+        XCTAssertTrue(app.staticTexts["message.cell.table.errors"].exists)
+    }
 }

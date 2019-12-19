@@ -33,6 +33,10 @@ class MainViewControllerUITests: XCTestCase {
         XCTAssertTrue(app.tabBars.buttons["errors.tab.main"].exists)
         
         XCTAssertTrue(app.navigationBars["navbar.main"].exists)
+        
+        XCTAssertEqual(app.tabBars.buttons["csv.tab.main"].label, NSLocalizedString("CSV", comment: "CSV display title"))
+        XCTAssertEqual(app.tabBars.buttons["txt.tab.main"].label, NSLocalizedString("TXT", comment: "TXT display title"))
+        XCTAssertEqual(app.tabBars.buttons["errors.tab.main"].label, NSLocalizedString("Errors", comment: "Errors display title"))
     }
     
     func testListSelectedOnLaunch() {

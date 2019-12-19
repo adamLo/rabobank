@@ -21,6 +21,9 @@ class ErrorCell: UITableViewCell {
         
         selectionStyle = .none
         messageLabel.font = UIFont.systemFont(ofSize: 15)
+        
+        accessibilityIdentifier = "cell.table.errors"
+        messageLabel.accessibilityIdentifier = "message.cell.table.errors"
     }
 
     /// Sets up cell with an error instance

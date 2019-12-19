@@ -52,6 +52,8 @@ class ErrorsViewController: UIViewController, CSVDisplayController, UITableViewD
             label.font = UIFont.systemFont(ofSize: 15)
             label.textAlignment = .center
             
+            label.accessibilityIdentifier = "empty_placeholder.table.errors"
+            
             errorsTableView.tableFooterView = label
         }
         else {

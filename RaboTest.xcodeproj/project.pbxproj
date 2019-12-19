@@ -55,6 +55,7 @@
 		192B81B223AA7283002458D7 /* 10000lines.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B81B023AA7283002458D7 /* 10000lines.csv */; };
 		192B81B423ABAEF3002458D7 /* ListViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81B323ABAEF3002458D7 /* ListViewControllerUITests.swift */; };
 		192B81B623ABB2EA002458D7 /* ErrorsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81B523ABB2EA002458D7 /* ErrorsViewControllerUITests.swift */; };
+		192B81B823ABBA22002458D7 /* TextViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81B723ABBA22002458D7 /* TextViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		192B81B023AA7283002458D7 /* 10000lines.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = 10000lines.csv; sourceTree = "<group>"; };
 		192B81B323ABAEF3002458D7 /* ListViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerUITests.swift; sourceTree = "<group>"; };
 		192B81B523ABB2EA002458D7 /* ErrorsViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsViewControllerUITests.swift; sourceTree = "<group>"; };
+		192B81B723ABBA22002458D7 /* TextViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				192B813923A79F0A002458D7 /* MainViewControllerUITests.swift */,
 				192B81B323ABAEF3002458D7 /* ListViewControllerUITests.swift */,
 				192B81B523ABB2EA002458D7 /* ErrorsViewControllerUITests.swift */,
+				192B81B723ABBA22002458D7 /* TextViewControllerTests.swift */,
 			);
 			path = RaboTestUITests;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				192B81A723AA5C87002458D7 /* ErrorsViewController.swift in Sources */,
 				192B819F23AA48B2002458D7 /* ItemCell.swift in Sources */,
 				192B817023A7D784002458D7 /* MainViewController.swift in Sources */,
+				192B81B823ABBA22002458D7 /* TextViewControllerTests.swift in Sources */,
 				192B819623AA2D6C002458D7 /* CSVDisplayController.swift in Sources */,
 				192B817523A7DE5B002458D7 /* ListViewController.swift in Sources */,
 				192B819C23AA4892002458D7 /* LineViewController.swift in Sources */,

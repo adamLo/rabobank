@@ -12,7 +12,7 @@
 		192B811F23A79F08002458D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192B811D23A79F08002458D7 /* Main.storyboard */; };
 		192B812123A79F0A002458D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 192B812023A79F0A002458D7 /* Assets.xcassets */; };
 		192B812423A79F0A002458D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192B812223A79F0A002458D7 /* LaunchScreen.storyboard */; };
-		192B813A23A79F0A002458D7 /* RaboTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B813923A79F0A002458D7 /* RaboTestUITests.swift */; };
+		192B813A23A79F0A002458D7 /* MainViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B813923A79F0A002458D7 /* MainViewControllerUITests.swift */; };
 		192B815123A7AE52002458D7 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815023A7AE52002458D7 /* StringUtil.swift */; };
 		192B815223A7AE52002458D7 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815023A7AE52002458D7 /* StringUtil.swift */; };
 		192B815423A7B3C0002458D7 /* StringUtilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B815323A7B3C0002458D7 /* StringUtilTests.swift */; };
@@ -83,7 +83,7 @@
 		192B812A23A79F0A002458D7 /* RaboTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaboTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		192B813023A79F0A002458D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		192B813523A79F0A002458D7 /* RaboTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaboTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		192B813923A79F0A002458D7 /* RaboTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaboTestUITests.swift; sourceTree = "<group>"; };
+		192B813923A79F0A002458D7 /* MainViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerUITests.swift; sourceTree = "<group>"; };
 		192B813B23A79F0A002458D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		192B815023A7AE52002458D7 /* StringUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
 		192B815323A7B3C0002458D7 /* StringUtilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtilTests.swift; sourceTree = "<group>"; };
@@ -181,7 +181,7 @@
 		192B813823A79F0A002458D7 /* RaboTestUITests */ = {
 			isa = PBXGroup;
 			children = (
-				192B813923A79F0A002458D7 /* RaboTestUITests.swift */,
+				192B813923A79F0A002458D7 /* MainViewControllerUITests.swift */,
 				192B813B23A79F0A002458D7 /* Info.plist */,
 			);
 			path = RaboTestUITests;
@@ -449,7 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				192B81A323AA5A95002458D7 /* TextViewController.swift in Sources */,
-				192B813A23A79F0A002458D7 /* RaboTestUITests.swift in Sources */,
+				192B813A23A79F0A002458D7 /* MainViewControllerUITests.swift in Sources */,
 				192B819923AA2E80002458D7 /* ListLineCell.swift in Sources */,
 				192B81AA23AA5C9C002458D7 /* ErrorCell.swift in Sources */,
 				192B819023A8FDC5002458D7 /* StringUtil.swift in Sources */,

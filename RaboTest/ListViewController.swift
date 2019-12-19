@@ -19,6 +19,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         super.viewDidLoad()
         
+        setupViewIdentifiers()
         setupUI()
     }
 
@@ -117,5 +118,12 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         lastIndex = max(lastIndex, (file?.lines.count ?? 0) - 1)
         listTableView.reloadData()
+    }
+    
+    // MARK: - UI Testing
+    
+    private func setupViewIdentifiers() {
+                
+        listTableView.accessibilityIdentifier = "table.csv"
     }
 }

@@ -29,6 +29,7 @@ class ErrorsViewController: UIViewController, CSVDisplayController, UITableViewD
         
         super.viewDidLoad()
         
+        setupViewIdentifiers()
         setupUI()
     }
     
@@ -103,5 +104,12 @@ class ErrorsViewController: UIViewController, CSVDisplayController, UITableViewD
     func readComplete(text: String?, errors: [Error]?) {
         
         self.errors = errors
+    }
+    
+    // MARK: - UI Testing
+    
+    private func setupViewIdentifiers() {
+        
+        errorsTableView.accessibilityIdentifier = "table.errors"
     }
 }

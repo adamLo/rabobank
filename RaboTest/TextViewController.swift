@@ -21,6 +21,7 @@ class TextViewController: UIViewController, CSVDisplayController {
         
         super.viewDidLoad()
         
+        setupViewIdentifiers()
         setupUI()
     }
     
@@ -52,5 +53,12 @@ class TextViewController: UIViewController, CSVDisplayController {
         if isViewLoaded {
             csvTextView.text = self.text
         }
+    }
+    
+    // MARK: - UI Testing
+    
+    private func setupViewIdentifiers() {
+        
+        csvTextView.accessibilityIdentifier = "text.txt"
     }
 }

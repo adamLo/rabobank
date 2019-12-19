@@ -21,6 +21,7 @@ class MainViewController: UITabBarController {
         super.viewDidLoad()
 
         setupUI()
+        setupViewIdentifiers()
         loadBundleData()
     }
     
@@ -137,5 +138,29 @@ class MainViewController: UITabBarController {
                 }
             }
         }
+    }
+    
+    // MARK: - UI Testing
+    
+    private func setupViewIdentifiers() {
+        
+        tabBar.accessibilityIdentifier = "tabbar.main"
+        
+        if let items = tabBar.items {
+            for index in 0..<items.count {
+                let item = items[index]
+                switch index {
+                case 0:
+                    item.accessibilityIdentifier = "csv.tab.main"
+                case 1:
+                    item.accessibilityIdentifier = "txt.tab.main"
+                case 2:
+                    item.accessibilityIdentifier = "errors.tab.main"
+                default: break
+                }
+            }
+        }
+        
+        navigationController?.navigationBar.accessibilityIdentifier = "navbar.main"
     }
 }

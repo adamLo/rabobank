@@ -47,6 +47,9 @@ class CSVFile {
     /// Error domain, used when creating errors
     private let errorDomain = "CSVFILE"
     
+    /// Indicates wheter loading and parsing is in progress
+    private(set) var isLoading = false
+    
     /// Initialize with an URL to a local file in the bundle
     init?(localFileURL: URL) {
         
@@ -57,6 +60,15 @@ class CSVFile {
     
     /// Loads csv file and calls linesRead after each line loaded and parsed and completion when finished
     func load(firstLineAsHeader: Bool, linesRead: LinesReadBlock?, completion: CompletionBlock?) {
+        
+        guard !isLoading else {
+            DispatchQueue.main.async {
+                completion?(nil, [self.createError(code: -2, message: NSLocalizedString("Loading already in progress", comment: "Error message when invoced load() while loading in progress"))])
+            }
+            return
+        }
+        
+        isLoading = true
         
         linesReadQueue.sync {
             _lines.removeAll()
@@ -105,6 +117,7 @@ class CSVFile {
             }
             
             DispatchQueue.main.async {
+                self.isLoading = false
                 completion?(text, errors.isEmpty ? nil : errors)
             }
         }

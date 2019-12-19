@@ -44,8 +44,11 @@ class CSVFileTests: XCTestCase {
         var errors: [Error]?
         var text: String?
         var lastIndex = -1
+        var finishedLoading = false
         
         let expectation = self.expectation(description: "LoadActualFile")
+        
+        XCTAssertFalse(file!.isLoading)
         
         file?.load(firstLineAsHeader: true, linesRead: { (index, line) in
             lineReadCount += 1
@@ -53,8 +56,11 @@ class CSVFileTests: XCTestCase {
         }, completion: { (_text, _errors) in
             errors = _errors
             text = _text
+            finishedLoading = !file!.isLoading
             expectation.fulfill()
         })
+        
+        XCTAssertTrue(file!.isLoading)
         
         waitForExpectations(timeout: 2, handler: nil)
         
@@ -63,6 +69,7 @@ class CSVFileTests: XCTestCase {
         XCTAssertEqual(lastIndex, 3)
         XCTAssertNil(errors)
         XCTAssertNotNil(text)
+        XCTAssertTrue(finishedLoading)
     }
     
     func testProcessTextFinal() {

@@ -285,6 +285,48 @@ class CSVFileTests: XCTestCase {
         XCTAssertEqual(error.domain, CSVFile.errorDomain)
     }
     
+    func testLoadObscuredFile() {
+        
+        let path = Bundle.main.path(forResource: "obscured", ofType: "csv")
+        XCTAssertNotNil(path)
+        let file = CSVFile(localFileURL: URL(fileURLWithPath: path!))
+        XCTAssertNotNil(file)
+        
+        var lineReadCount = 0
+        var errors: [Error]?
+        var text: String?
+        var lastIndex = -1
+        var finishedLoading = false
+        
+        let expectation = self.expectation(description: "LoadObscuredFile")
+        
+        XCTAssertFalse(file!.isLoading)
+        
+        file?.load(firstLineAsHeader: true, linesRead: { (index, line) in
+            lineReadCount += 1
+            lastIndex = index ?? 0
+        }, completion: { (_text, _errors) in
+            errors = _errors
+            text = _text
+            finishedLoading = !file!.isLoading
+            expectation.fulfill()
+        })
+        
+        XCTAssertTrue(file!.isLoading)
+        
+        waitForExpectations(timeout: 2, handler: nil)
+        
+        XCTAssertNotNil(file?.lines)
+        XCTAssertEqual(file?.lines.count, 3)
+        XCTAssertEqual(lastIndex, 3)
+        XCTAssertNil(errors)
+        XCTAssertNotNil(text)
+        XCTAssertTrue(finishedLoading)
+        XCTAssertEqual(file?.lines[0].count, 3)
+        XCTAssertEqual(file?.lines[1].count, 3)
+        XCTAssertEqual(file?.lines[2].count, 6)
+    }
+    
     // MARK: - Measure load time
     
     func testLoad3Lines() {

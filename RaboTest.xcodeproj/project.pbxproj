@@ -57,6 +57,8 @@
 		192B81B623ABB2EA002458D7 /* ErrorsViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81B523ABB2EA002458D7 /* ErrorsViewControllerUITests.swift */; };
 		192B81B823ABBA22002458D7 /* TextViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B81B723ABBA22002458D7 /* TextViewControllerTests.swift */; };
 		192B81BA23ABCDEC002458D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192B811723A79F08002458D7 /* AppDelegate.swift */; };
+		192B81BC23ACBBBF002458D7 /* obscured.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B81BB23ACBBBF002458D7 /* obscured.csv */; };
+		192B81BD23ACBBBF002458D7 /* obscured.csv in Resources */ = {isa = PBXBuildFile; fileRef = 192B81BB23ACBBBF002458D7 /* obscured.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,7 @@
 		192B81B323ABAEF3002458D7 /* ListViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerUITests.swift; sourceTree = "<group>"; };
 		192B81B523ABB2EA002458D7 /* ErrorsViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorsViewControllerUITests.swift; sourceTree = "<group>"; };
 		192B81B723ABBA22002458D7 /* TextViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewControllerTests.swift; sourceTree = "<group>"; };
+		192B81BB23ACBBBF002458D7 /* obscured.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = obscured.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +233,7 @@
 				192B815F23A7C86B002458D7 /* emptyfile.csv */,
 				192B81AB23AA6F07002458D7 /* 2000lines.csv */,
 				192B81B023AA7283002458D7 /* 10000lines.csv */,
+				192B81BB23ACBBBF002458D7 /* obscured.csv */,
 			);
 			name = "Test Data";
 			sourceTree = "<group>";
@@ -389,6 +393,7 @@
 				192B816923A7CD12002458D7 /* emptyfile.csv in Resources */,
 				192B81B123AA7283002458D7 /* 10000lines.csv in Resources */,
 				192B815923A7C547002458D7 /* issues.csv in Resources */,
+				192B81BC23ACBBBF002458D7 /* obscured.csv in Resources */,
 				192B816B23A7CDEF002458D7 /* invalid2.csv in Resources */,
 				192B812423A79F0A002458D7 /* LaunchScreen.storyboard in Resources */,
 				192B81AD23AA6F22002458D7 /* 2000lines.csv in Resources */,
@@ -407,6 +412,7 @@
 				192B815A23A7C547002458D7 /* issues.csv in Resources */,
 				192B816623A7CCA1002458D7 /* invalid1.csv in Resources */,
 				192B81B223AA7283002458D7 /* 10000lines.csv in Resources */,
+				192B81BD23ACBBBF002458D7 /* obscured.csv in Resources */,
 				192B816C23A7CDEF002458D7 /* invalid2.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
